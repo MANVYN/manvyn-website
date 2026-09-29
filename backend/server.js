@@ -17,16 +17,23 @@ app.use(
   cors({
     origin: allowedOrigins,
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
 
 app.use("/api/enquiries", enquiryRoutes);
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "MANVYN API is running",
+// app.get("/", (req, res) => {
+//   res.json({
+//     message: "MANVYN API is running",
+//   });
+// });
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "MANVYN API is healthy",
   });
 });
 

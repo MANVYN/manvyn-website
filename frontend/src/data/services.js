@@ -1,3 +1,10 @@
+import websites from "../assets/images/services/websites.png"
+import ecommerce from "../assets/images/services/ecommerce.png"
+import webapps from "../assets/images/services/webapps.png"
+import custom from "../assets/images/services/custom.png"
+
+
+
 export const services = [
   {
     title: "Websites",
@@ -26,7 +33,6 @@ export const services = [
 ];
 
 
-// import websites from "../assets/images/services/websites.png"
 
 export const servicesData = [
   {
@@ -35,7 +41,7 @@ export const servicesData = [
     title: "Websites",
     description:
       "Professional websites that build trust, showcase your business and turn visitors into enquiries.",
-    image: "../src/assets/images/services/websites.png",
+    image: websites,
 
     forWho: [
       "Small businesses",
@@ -66,7 +72,7 @@ export const servicesData = [
     title: "E-commerce",
     description:
       "Online stores designed to make shopping simple, trustworthy and conversion-focused.",
-    image: "../src/assets/images/services/ecommerce.png",
+    image: ecommerce,
 
     forWho: [
       "Retailers",
@@ -97,7 +103,7 @@ export const servicesData = [
     title: "Web Applications",
     description:
       "Custom web applications built around your business processes, users and operational needs.",
-    image: "../src/assets/images/services/webapps.png",
+    image: webapps,
 
     forWho: [
       "Growing businesses",
@@ -128,7 +134,7 @@ export const servicesData = [
     title: "Custom Development",
     description:
       "When an off-the-shelf solution isn't enough, we build software around exactly what your business needs.",
-    image: "../src/assets/images/services/custom.png",
+    image: custom,
 
     forWho: [
       "Businesses with unique requirements",

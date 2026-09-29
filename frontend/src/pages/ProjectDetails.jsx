@@ -4,9 +4,9 @@ import Container from "../components/common/Container";
 import SEO from "../components/common/SEO";
 import { projects } from "../data/projects.js";
 
+import { FaGithub } from "react-icons/fa";
 import {
   ExternalLink,
-  //   Github,
   ArrowRight,
 } from "lucide-react";
 
@@ -143,7 +143,7 @@ const ProjectDetails = () => {
                       className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-[#0b1220] transition hover:border-[#315fcf] hover:text-[#315fcf]"
                     >
                       View Code
-                      {/* <Github size={17} /> */}
+                      <FaGithub size={17} />
                     </a>
                   )}
                 </div>
