@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://www.manvyn.com/</loc>
   </url>
@@ -19,6 +18,29 @@
   </url>
 
   <url>
-    <loc>https://www.manvyn.com//start-project</loc>
+    <loc>https://www.manvyn.com/start-project</loc>
   </url>
+
+  <url>
+    <loc>https://www.manvyn.com/privacy-policy</loc>
+  </url>
+
+  <url>
+    <loc>https://www.manvyn.com/terms</loc>
+  </url>
+
+  <!-- Project pages -->
+
+  <url>
+    <loc>https://www.manvyn.com/work/shopsphere</loc>
+  </url>
+
+  <url>
+    <loc>https://www.manvyn.com/work/hrms-pro</loc>
+  </url>
+
+  <url>
+    <loc>https://www.manvyn.com/work/road-side-assistance</loc>
+  </url>
+
 </urlset>
