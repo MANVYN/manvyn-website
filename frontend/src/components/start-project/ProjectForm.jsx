@@ -157,7 +157,7 @@ const ProjectForm = () => {
                 Get In Touch
               </span>
 
-              <h2 className="mt-5 max-w-[420px] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-5 max-w-[420px] text-4xl font-semibold tracking-tight text-white sm:text-4xl">
                 Tell us about your project.
               </h2>
 

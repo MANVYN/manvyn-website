@@ -1,37 +1,3 @@
-// import Container from "../common/Container";
-
-// const StartProjectHero = () => {
-//   return (
-//     <section className="relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-white to-[#eef4ff] py-20 lg:py-28">
-//       {/* Background glow */}
-//       <div className="absolute left-0 top-20 h-56 w-56 rounded-full bg-[#315fcf]/10 blur-3xl" />
-//       <div className="absolute right-0 top-10 h-64 w-64 rounded-full bg-[#3b82b6]/10 blur-3xl" />
-
-//       <Container>
-//         <div className="relative mx-auto max-w-[900px] text-center">
-//           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
-//             Start a Project
-//           </span>
-
-//           <h1 className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-[#0b1220] sm:text-6xl lg:text-7xl">
-//             Let's build something
-//             <span className="block text-[#315fcf]">
-//               that moves your business forward.
-//             </span>
-//           </h1>
-
-//           <p className="mx-auto mt-7 max-w-[700px] text-base leading-7 text-[#64748b] sm:text-lg">
-//             Tell us a little about your project, and we'll get back to you
-//             with the next steps.
-//           </p>
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// };
-
-// export default StartProjectHero;
-
 import Container from "../common/Container";
 import Hero from "../../assets/images/start-project-hero.png";
 
@@ -60,7 +26,7 @@ const StartProjectHero = () => {
               Start a Project
             </span>
 
-            <h1 className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-6xl">
               Let's build something
               <span className="block text-[#4d7ff5]">
                 that moves your business forward.
