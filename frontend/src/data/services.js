@@ -1,9 +1,7 @@
-import websites from "../assets/images/services/websites.png"
-import ecommerce from "../assets/images/services/ecommerce.png"
-import webapps from "../assets/images/services/webapps.png"
-import custom from "../assets/images/services/custom.png"
-
-
+import websites from "../assets/images/services/websites.png";
+import ecommerce from "../assets/images/services/ecommerce.png";
+import webapps from "../assets/images/services/webapps.png";
+import custom from "../assets/images/services/custom.png";
 
 export const services = [
   {
@@ -31,8 +29,6 @@ export const services = [
     icon: "Wrench",
   },
 ];
-
-
 
 export const servicesData = [
   {

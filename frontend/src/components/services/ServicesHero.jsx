@@ -12,33 +12,31 @@ const Services = () => {
       <section className="relative overflow-hidden bg-[#14223d]">
         <Container>
           {/* <div className="grid min-h-[520px] items-center gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:py-20"> */}
-            <div className="flex min-h-[460px] items-center justify-center py-16 text-center lg:py-20">
-
+          <div className="flex min-h-[460px] items-center justify-center py-16 text-center lg:py-20">
             {/* Left Content */}
             {/* <div className="relative z-10 max-w-[600px]"> */}
-                <div className="relative z-10 mx-auto max-w-[760px]">
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#315fcf]">
+            <div className="relative z-10 mx-auto max-w-[760px]">
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#4d7ff5]/25 bg-[#4d7ff5]/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#a8beff] backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#4d7ff5] shadow-[0_0_10px_rgba(77,127,245,0.8)]" />
                 Services
-              </p>
+              </div>
 
               <h1 className="mt-4 text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-5xl lg:text-[58px]">
-                Digital solutions
-                built around 
-                <br />your &nbsp;
-                <span className="text-[#315fcf]">
-                  business goals.
-                </span>
+                Digital solutions built around
+                <br />
+                your &nbsp;
+                <span className="text-[#315fcf]">business goals.</span>
               </h1>
 
               <p className="mt-6 max-w-[650px] text-base leading-7 text-[#64748b] sm:text-lg">
-                From professional websites to e-commerce, web applications
-                and custom software, we build digital solutions designed
-                around how your business works.
+                From professional websites to e-commerce, web applications and
+                custom software, we build digital solutions designed around how
+                your business works.
               </p>
 
               <Link
                 to="/start-project"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#0b1220] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-all duration-200 hover:bg-[#162033]"
+                className="mt-8 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/30 hover:bg-white/[0.08]"
               >
                 Let's Talk
                 <ArrowRight size={17} strokeWidth={2} />
@@ -55,7 +53,6 @@ const Services = () => {
                 className="relative z-10 w-full max-w-[620px] object-contain"
               />
             </div> */}
-
           </div>
         </Container>
       </section>

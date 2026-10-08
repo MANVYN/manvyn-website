@@ -8,7 +8,6 @@ import WhoWeWorkWith from "../components/about/WhoWeWorkWith";
 import AboutCTA from "../components/about/AboutCTA";
 import SEO from "../components/common/SEO";
 
-
 const About = () => {
   return (
     <>

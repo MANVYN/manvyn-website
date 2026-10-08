@@ -34,10 +34,8 @@ const benefits = [
 const DigitalPresence = () => {
   return (
     <section className="bg-[#e7ebf1] py-20 lg:py-24">
-
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-
           {/* Left */}
           <div className="max-w-[360px]">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#0b1220] sm:text-4xl">
@@ -65,10 +63,7 @@ const DigitalPresence = () => {
               const Icon = benefit.icon;
 
               return (
-                <div
-                  key={benefit.title}
-                  className="flex gap-4"
-                >
+                <div key={benefit.title} className="flex gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#315fcf]">
                     <Icon size={21} strokeWidth={2} />
                   </div>
@@ -86,7 +81,6 @@ const DigitalPresence = () => {
               );
             })}
           </div>
-
         </div>
       </Container>
     </section>

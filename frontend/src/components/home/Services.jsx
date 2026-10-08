@@ -6,7 +6,6 @@ import { services } from "../../data/services";
 const Services = () => {
   return (
     <section className="bg-white py-20 lg:py-24">
-
       <Container>
         {/* Section heading */}
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
@@ -67,6 +66,8 @@ const Services = () => {
                   Learn More
                   <ArrowRight size={15} />
                 </a>
+
+                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#315fcf] transition-all duration-400 group-hover:w-full" />
               </article>
             );
           })}

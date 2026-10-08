@@ -63,7 +63,9 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-[#14223d] md:hidden"
           >

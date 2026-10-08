@@ -1,4 +1,3 @@
-
 import shopSphereHero from "../assets/images/work/shopsphere-hero.png";
 import ssFront from "../assets/images/work/shopsphere-front.png";
 import ssTracking from "../assets/images/work/shopsphere-tracking.png";
@@ -12,21 +11,113 @@ import hrmsEmployeeDetails from "../assets/images/work/hrms-employee-details.png
 import hrmsPayroll from "../assets/images/work/hrms-payroll.png";
 import hrmsLeave from "../assets/images/work/hrms-leave.png";
 
-import rsaHero from "../assets/images/work/rsa-hero.png"
+import rsaHero from "../assets/images/work/rsa-hero.png";
 // images
 import rsaCreateTicket from "../assets/images/work/rsa-create-ticket.png";
 import rsaL2Dashboard from "../assets/images/work/rsa-dashboard.png";
 import rsaCustomerLocation from "../assets/images/work/rsa-customer-location.png";
 
+import {
+  Search,
+  Truck,
+  Shield,
+  Users,
+  Calendar,
+  Clipboard,
+  Wallet,
+  TicketPlus,
+  LayoutDashboard,
+  Route,
+  LayoutGrid,
+  Globe,
+  ShoppingCart,
+  Monitor,
+  Code2,
+} from "lucide-react";
+
+import {
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiWhatsapp,
+  SiRedux,
+} from "react-icons/si";
+
+export const technologyConfig = {
+  React: {
+    icon: SiReact,
+    color: "#61DAFB",
+  },
+
+  "Node.js": {
+    icon: SiNodedotjs,
+    color: "#339933",
+  },
+
+  Express: {
+    icon: SiExpress,
+    color: "#000000",
+  },
+
+  MongoDB: {
+    icon: SiMongodb,
+    color: "#47A248",
+  },
+
+  "WhatsApp Cloud API": {
+    icon: SiWhatsapp,
+    color: "#25D366",
+  },
+
+  "Redux Toolkit": {
+    icon: SiRedux,
+    color: "#764ABC",
+  },
+
+  "Node.js + Express": {
+    icon: SiNodedotjs,
+    color: "#339933",
+  },
+};
+
+export const capabilitiesIcons = {
+  search: Search,
+  cart: ShoppingCart,
+  truck: Truck,
+  shield: Shield,
+  users: Users,
+  calendar: Calendar,
+  clipboard: Clipboard,
+  wallet: Wallet,
+  ticketplus: TicketPlus,
+  layoutdashboard: LayoutDashboard,
+  monitor: Monitor,
+  route: Route,
+};
+
 export const projectCategories = [
-  "All",
-  "Websites",
-  "E-commerce",
-  "Web Applications",
-  "Custom Development",
+  {
+    name: "All",
+    icon: LayoutGrid,
+  },
+  {
+    name: "Websites",
+    icon: Globe,
+  },
+  {
+    name: "E-commerce",
+    icon: ShoppingCart,
+  },
+  {
+    name: "Web Applications",
+    icon: Monitor,
+  },
+  {
+    name: "Custom Development",
+    icon: Code2,
+  },
 ];
-
-
 
 export const projects = [
   {
@@ -281,136 +372,138 @@ export const projects = [
       },
     ],
   },
- {
-  id: 3,
-  slug: "road-side-assistance",
+  {
+    id: 3,
+    slug: "road-side-assistance",
 
-  title: "Road side Assistance",
-  category: "Custom Development",
-
-  description:
-    "A roadside assistance platform that connects L1 customer support, WhatsApp location sharing and L2 service operations into a centralized ticket management workflow.",
-
-  heroImage: rsaHero,
-
-  technologies: [
-    "React",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "WhatsApp Cloud API",
-  ],
-
-  liveUrl: "",
-  githubUrl: "",
-
-  challenge: {
-    title:
-      "Turning a roadside assistance call into a connected service workflow.",
+    title: "Road side Assistance",
+    category: "Custom Development",
 
     description:
-      "The platform was built to help L1 support teams create structured roadside assistance tickets, collect the customer's location through WhatsApp and pass the request into an automated service workflow where L2 teams can monitor tickets and technician activity.",
+      "A roadside assistance platform that connects L1 customer support, WhatsApp location sharing and L2 service operations into a centralized ticket management workflow.",
+
+    heroImage: rsaHero,
+    // heroImage: featuredTest,
+
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "WhatsApp Cloud API",
+    ],
+
+    liveUrl: "",
+    githubUrl: "",
+
+    challenge: {
+      title:
+        "Turning a roadside assistance call into a connected service workflow.",
+
+      description:
+        "The platform was built to help L1 support teams create structured roadside assistance tickets, collect the customer's location through WhatsApp and pass the request into an automated service workflow where L2 teams can monitor tickets and technician activity.",
+    },
+
+    capabilities: [
+      {
+        title: "L1 Ticket Creation",
+        description:
+          "L1 agents create roadside assistance tickets while capturing customer, vehicle, incident and service details, with WhatsApp used to collect the customer's location.",
+        icon: "ticketplus",
+      },
+
+      {
+        title: "L2 Ticket Monitoring",
+        description:
+          "L2 teams monitor incoming tickets, service status and technician activity from a centralized roadside assistance dashboard.",
+        icon: "layoutdashboard",
+      },
+
+      {
+        title: "L2 Service Management",
+        description:
+          "L2 teams manage service operations and coordinate technician activity through a centralized dashboard.",
+        icon: "monitor",
+      },
+
+      {
+        title: "Auto Technician Assignment",
+        description:
+          "Technicians are assigned automatically through the service workflow, allowing L2 to focus on monitoring and operations.",
+        icon: "route",
+      },
+    ],
+
+    gallery: [
+      {
+        image: rsaCreateTicket,
+        title: "L1 Ticket Creation",
+        description:
+          "L1 agents capture customer, vehicle, incident and required service details while creating a roadside assistance ticket.",
+      },
+
+      {
+        image: rsaL2Dashboard,
+        title: "WhatsApp Customer Communication",
+        description:
+          "WhatsApp is integrated directly into the L1 workflow to request and receive the customer's current location.",
+      },
+
+      {
+        image: rsaCustomerLocation,
+        title: "L2 Service Operations",
+        description:
+          "L2 teams can monitor tickets, technician activity, service status and the customer's location from the ticket workflow.",
+      },
+    ],
+
+    features: [
+      "L1 ticket creation",
+      "Customer details management",
+      "Vehicle details management",
+      "Issue category & sub-category",
+      "Required service selection",
+      "WhatsApp customer communication",
+      "Customer location sharing",
+      "Location coordinates",
+      "L2 ticket dashboard",
+      "Automatic technician assignment",
+      "Technician activity monitoring",
+      "Ticket status monitoring",
+      "Technician route tracking",
+      "Customer WhatsApp conversation",
+      "Roadside assistance workflow",
+    ],
+
+    stack: [
+      {
+        category: "Frontend",
+        technology: "React",
+        description:
+          "Interfaces for L1 ticket creation and L2 service operations",
+      },
+
+      {
+        category: "Backend",
+        technology: "Node.js + Express",
+        description:
+          "REST APIs handling tickets, service workflows and technician operations",
+      },
+
+      {
+        category: "Database",
+        technology: "MongoDB",
+        description:
+          "Stores tickets, customer details, vehicle information, locations and service data",
+      },
+
+      {
+        category: "Communication",
+        technology: "WhatsApp Cloud API",
+        description:
+          "Customer communication and location-sharing workflow through WhatsApp",
+      },
+    ],
+    featured: true,
   },
-
-  capabilities: [
-    {
-  image: rsaCreateTicket,
-  title: "L1 Ticket Creation",
-  description:
-    "L1 agents create roadside assistance tickets while capturing customer, vehicle, incident and service details, with WhatsApp used to collect the customer's location.",
-},
-
-{
-  image: rsaL2Dashboard,
-  title: "L2 Service Operations",
-  description:
-    "L2 teams monitor incoming tickets, service status and technician activity from a centralized roadside assistance dashboard.",
-},
-
-    {
-      title: "L2 Service Operations",
-      description:
-        "L2 teams monitor incoming tickets, service status and technician activity from a centralized dashboard.",
-      icon: "monitor",
-    },
-
-    {
-      title: "Automatic Technician Assignment",
-      description:
-        "Technicians are assigned automatically through the service workflow, allowing L2 to focus on monitoring and operations.",
-      icon: "route",
-    },
-  ],
-
-  gallery: [
-    {
-      image: rsaCreateTicket,
-      title: "L1 Ticket Creation",
-      description:
-        "L1 agents capture customer, vehicle, incident and required service details while creating a roadside assistance ticket.",
-    },
-
-    {
-      image: rsaL2Dashboard,
-      title: "WhatsApp Customer Communication",
-      description:
-        "WhatsApp is integrated directly into the L1 workflow to request and receive the customer's current location.",
-    },
-
-    {
-      image: rsaCustomerLocation,
-      title: "L2 Service Operations",
-      description:
-        "L2 teams can monitor tickets, technician activity, service status and the customer's location from the ticket workflow.",
-    },
-  ],
-
-  features: [
-    "L1 ticket creation",
-    "Customer details management",
-    "Vehicle details management",
-    "Issue category & sub-category",
-    "Required service selection",
-    "WhatsApp customer communication",
-    "Customer location sharing",
-    "Location coordinates",
-    "L2 ticket dashboard",
-    "Automatic technician assignment",
-    "Technician activity monitoring",
-    "Ticket status monitoring",
-    "Technician route tracking",
-    "Customer WhatsApp conversation",
-    "Roadside assistance workflow",
-  ],
-
-  stack: [
-    {
-      category: "Frontend",
-      technology: "React",
-      description:
-        "Interfaces for L1 ticket creation and L2 service operations",
-    },
-
-    {
-      category: "Backend",
-      technology: "Node.js + Express",
-      description:
-        "REST APIs handling tickets, service workflows and technician operations",
-    },
-
-    {
-      category: "Database",
-      technology: "MongoDB",
-      description:
-        "Stores tickets, customer details, vehicle information, locations and service data",
-    },
-
-    {
-      category: "Communication",
-      technology: "WhatsApp Cloud API",
-      description:
-        "Customer communication and location-sharing workflow through WhatsApp",
-    },
-  ],
-}
 ];

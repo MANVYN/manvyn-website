@@ -29,9 +29,10 @@ const WhoWeWorkWith = () => {
     <section className="bg-[#0f1f45] py-14 lg:py-22">
       <Container>
         <div>
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#315fcf]">
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#4d7ff5]/25 bg-[#4d7ff5]/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#a8beff] backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#4d7ff5] shadow-[0_0_10px_rgba(77,127,245,0.8)]" />
             Who We Work With
-          </span>
+          </div>
 
           <h2 className="mt-5 max-w-[700px] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             Digital solutions for businesses at every stage.
@@ -50,7 +51,7 @@ const WhoWeWorkWith = () => {
                   : ""
               }`}
             >
-              <span className="text-sm font-bold text-[#315fcf]">
+              <span className="text-sm font-bold text-white  group-hover:text-[#315fcf]">
                 {audience.number}
               </span>
 

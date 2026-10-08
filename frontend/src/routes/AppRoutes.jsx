@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import Services from "../pages/Services";
-import Work from "../pages/Work"
+import Work from "../pages/Work";
 
 import ProjectDetails from "../pages/ProjectDetails";
 
@@ -29,8 +29,7 @@ function AppRoutes() {
           <Route path="/terms" element={<Terms />} />
         </Route>
 
-          <Route path="*" element={<NotFound />} />
-
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

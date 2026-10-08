@@ -5,8 +5,7 @@ const steps = [
   {
     number: "01",
     title: "We review",
-    description:
-      "We go through your requirements and understand your goals.",
+    description: "We go through your requirements and understand your goals.",
     icon: FileText,
   },
   {
@@ -19,8 +18,7 @@ const steps = [
   {
     number: "03",
     title: "We plan",
-    description:
-      "We outline the right approach, scope and next steps.",
+    description: "We outline the right approach, scope and next steps.",
     icon: Settings,
   },
 ];

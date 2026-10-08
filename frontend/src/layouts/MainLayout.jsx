@@ -7,13 +7,12 @@ import ScrollToTop from "../components/common/ScrollToTop";
 function MainLayout() {
   return (
     <div className="min-h-screen bg-white">
-
       <ScrollToTop />
 
       <Header />
 
       <main>
-          <Outlet />
+        <Outlet />
       </main>
 
       <Footer />

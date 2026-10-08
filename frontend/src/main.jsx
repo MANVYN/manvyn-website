@@ -10,5 +10,18 @@ createRoot(document.getElementById("root")).render(
     <HelmetProvider>
       <App />
     </HelmetProvider>
-  </StrictMode>
+  </StrictMode>,
 );
+
+// const originalError = console.error;
+
+// console.error = (...args) => {
+//   if (
+//     typeof args[0] === "string" &&
+//     args[0].includes("Encountered two children with the same key")
+//   ) {
+//     debugger;
+//   }
+
+//   originalError(...args);
+// };

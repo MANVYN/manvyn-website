@@ -8,7 +8,6 @@ import ProjectGrid from "../components/work/ProjectGrid";
 import WorkCTA from "../components/work/WorkCTA";
 import SEO from "../components/common/SEO";
 
-
 import { projectCategories, projects } from "../data/projects";
 
 const Work = () => {
@@ -17,7 +16,8 @@ const Work = () => {
   const featuredProject = projects.find((project) => project.featured);
 
   const filteredProjects = useMemo(() => {
-    const availableProjects = projects.filter((project) => !project.featured);
+    // const availableProjects = projects.filter((project) => !project.featured);
+    const availableProjects = projects.filter((project) => project);
 
     if (activeCategory === "All") {
       return availableProjects;
@@ -28,7 +28,7 @@ const Work = () => {
     );
   }, [activeCategory]);
 
-  console.log(filteredProjects)
+  console.log(filteredProjects);
 
   return (
     <>

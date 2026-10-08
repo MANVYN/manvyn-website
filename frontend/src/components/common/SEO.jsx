@@ -3,13 +3,8 @@ import { Helmet } from "react-helmet-async";
 const SITE_NAME = "MANVYN";
 const SITE_URL = "https://www.manvyn.com";
 
-const SEO = ({
-  title,
-  description,
-  path = "/",
-}) => {
-  const fullTitle =
-    title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+const SEO = ({ title, description, path = "/" }) => {
+  const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
 
   const canonicalUrl = `${SITE_URL}${path}`;
 

@@ -4,7 +4,6 @@ import WhatHappensNext from "../components/start-project/WhatHappensNext";
 import DirectContact from "../components/start-project/DirectContact";
 import SEO from "../components/common/SEO";
 
-
 const StartProject = () => {
   return (
     <>

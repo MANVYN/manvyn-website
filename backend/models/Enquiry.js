@@ -44,7 +44,7 @@ const enquirySchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Enquiry = mongoose.model("Enquiry", enquirySchema);

@@ -1,4 +1,91 @@
 import Container from "../common/Container";
+import {
+  SiReact,
+  SiJavascript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostman,
+  SiRazorpay,
+  SiWhatsapp,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiRender,
+} from "react-icons/si";
+
+const technologyConfig = {
+  React: {
+    icon: SiReact,
+    color: "#61DAFB",
+  },
+
+  JavaScript: {
+    icon: SiJavascript,
+    color: "#F7DF1E",
+  },
+
+  "Tailwind CSS": {
+    icon: SiTailwindcss,
+    color: "#06B6D4",
+  },
+
+  "Node.js": {
+    icon: SiNodedotjs,
+    color: "#339933",
+  },
+
+  Express: {
+    icon: SiExpress,
+    color: "#000000",
+  },
+
+  "REST APIs": {
+    icon: SiPostman,
+    color: "#FF6C37",
+  },
+
+  MongoDB: {
+    icon: SiMongodb,
+    color: "#47A248",
+  },
+
+  "Data Modelling": {
+    icon: SiMongodb,
+    color: "#47A248",
+  },
+
+  "API Integration": {
+    icon: SiPostman,
+    color: "#FF6C37",
+  },
+
+  Payments: {
+    icon: SiRazorpay,
+    color: "#3395FF",
+  },
+
+  WhatsApp: {
+    icon: SiWhatsapp,
+    color: "#25D366",
+  },
+
+  "Third-party APIs": {
+    icon: SiPostman,
+    color: "#FF6C37",
+  },
+
+  Git: {
+    icon: SiGit,
+    color: "#F05032",
+  },
+
+  "Cloud Deployment": {
+    icon: SiVercel,
+    color: "#000000",
+  },
+};
 
 const capabilities = [
   {
@@ -32,9 +119,10 @@ const TechnologyCapabilities = () => {
       <Container>
         {/* Heading */}
         <div className="max-w-[700px]">
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#315fcf]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
             Technology & Capabilities
-          </span>
+          </div>
 
           <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0f1f45] sm:text-5xl">
             The technology behind what we build.
@@ -47,6 +135,7 @@ const TechnologyCapabilities = () => {
         </div>
 
         {/* Capabilities */}
+
         <div className="mt-14 border-t border-slate-200">
           {capabilities.map((item) => (
             <div
@@ -58,14 +147,23 @@ const TechnologyCapabilities = () => {
               </h3>
 
               <div className="flex flex-wrap gap-x-8 gap-y-3">
-                {item.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="text-sm font-bold text-[#315fcf] sm:text-base"
-                  >
-                    {technology}
-                  </span>
-                ))}
+                {item.technologies.map((technology) => {
+                  const config = technologyConfig[technology];
+                  const Icon = config?.icon;
+
+                  return (
+                    <span
+                      key={technology}
+                      className="inline-flex items-center gap-2 text-md font-medium text-[#475569]"
+                    >
+                      {Icon && (
+                        <Icon size={18} style={{ color: config.color }} />
+                      )}
+
+                      {technology}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}
