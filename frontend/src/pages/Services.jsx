@@ -3,7 +3,6 @@ import ServicesAccordion from "../components/services/ServicesAccordion";
 import ServicesCTA from "../components/services/ServicesCTA";
 import SEO from "../components/common/SEO";
 
-
 const Services = () => {
   return (
     <>

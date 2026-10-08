@@ -11,7 +11,6 @@ import FinalCTA from "../components/home/FinalCTA";
 import SEO from "../components/common/SEO";
 
 const Home = () => {
-
   useEffect(() => {
     axios.post(
       `${import.meta.env.VITE_API_URL}/api/visits`,
@@ -20,7 +19,7 @@ const Home = () => {
       },
       {
         withCredentials: true,
-      }
+      },
     );
   }, []);
 

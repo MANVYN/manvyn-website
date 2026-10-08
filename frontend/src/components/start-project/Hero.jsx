@@ -32,11 +32,8 @@
 
 // export default StartProjectHero;
 
-
-
-
 import Container from "../common/Container";
-import Hero from "../../assets/images/start-project-hero.png"
+import Hero from "../../assets/images/start-project-hero.png";
 
 const StartProjectHero = () => {
   return (

@@ -5,10 +5,9 @@ import SEO from "../components/common/SEO";
 import { projects } from "../data/projects.js";
 
 import { FaGithub } from "react-icons/fa";
-import {
-  ExternalLink,
-  ArrowRight,
-} from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import { technologyConfig } from "../data/projects.js";
+import { capabilitiesIcons } from "../data/projects.js";
 
 const ProjectDetails = () => {
   const { slug } = useParams();
@@ -95,12 +94,14 @@ const ProjectDetails = () => {
               {/* LEFT */}
               <div className="max-w-[540px]">
                 {/* Category */}
-                <div className="mb-5 inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#315fcf]">
+
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
                   {project.category}
                 </div>
 
                 {/* Title */}
-                <h1 className="text-5xl font-bold tracking-[-0.04em] text-[#0b1220] sm:text-6xl">
+                <h1 className="text-5xl font-bold tracking-[-0.04em] text-[#0b1220] sm:text-5xl">
                   {project.title}
                 </h1>
 
@@ -111,14 +112,23 @@ const ProjectDetails = () => {
 
                 {/* Technologies */}
                 <div className="mt-7 flex flex-wrap gap-2">
-                  {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600"
-                    >
-                      {technology}
-                    </span>
-                  ))}
+                  {project.technologies.map((technology) => {
+                    const config = technologyConfig[technology];
+                    const Icon = config?.icon;
+
+                    return (
+                      <span
+                        key={technology}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm"
+                      >
+                        {Icon && (
+                          <Icon size={14} style={{ color: config.color }} />
+                        )}
+
+                        {technology}
+                      </span>
+                    );
+                  })}
                 </div>
 
                 {/* Actions */}
@@ -161,7 +171,8 @@ const ProjectDetails = () => {
                   fetchPriority="high"
                   loading="eager"
                   decoding="async"
-                  className="relative z-10 w-full max-w-[700px] object-contain drop-shadow-[0_30px_60px_rgba(37,99,235,0.16)]"
+                  // className="relative z-10 h-[380px] w-full max-w-[700px] rounded-2xl object-cover object-center drop-shadow-[0_30px_60px_rgba(37,99,235,0.16)] [mask-image:radial-gradient(ellipse_at_center,black_92%,transparent_100%)]"
+                  className="relative z-10 h-[380px] w-full max-w-[700px] rounded-2xl object-cover object-center drop-shadow-[0_30px_60px_rgba(37,99,235,0.16)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_2%,black_98%,transparent_100%),linear-gradient(to_right,transparent_0%,black_2%,black_98%,transparent_100%)] [mask-composite:intersect]"
                 />
               </div>
             </div>
@@ -175,9 +186,10 @@ const ProjectDetails = () => {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
             {/* LEFT */}
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#315fcf]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
                 The Challenge
-              </p>
+              </div>
 
               <h2 className="mt-4 max-w-[520px] text-3xl font-bold leading-tight tracking-tight text-[#0b1220] sm:text-4xl">
                 {project.challenge.title}
@@ -199,9 +211,10 @@ const ProjectDetails = () => {
         <Container>
           {/* Section heading */}
           <div className="max-w-[700px]">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#315fcf]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
               What We Built
-            </p>
+            </div>
 
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
               A complete digital experience built around the product.
@@ -213,37 +226,44 @@ const ProjectDetails = () => {
             </p>
           </div>
 
-          {/* Capabilities */}
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {project.capabilities.map((capability, index) => (
-              <div
-                key={capability.title}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/50"
-              >
-                {/* Number */}
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-slate-300">
-                    0{index + 1}
-                  </span>
+            {project.capabilities.map((capability, index) => {
+              const Icon = capabilitiesIcons[capability.icon];
 
-                  <div className="h-2 w-2 rounded-full bg-[#315fcf] opacity-40 transition-opacity group-hover:opacity-100" />
+              return (
+                <div
+                  key={capability.title}
+                  className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/50"
+                >
+                  {/* Number + Icon */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-slate-300">
+                      0{index + 1}
+                    </span>
+
+                    {Icon && (
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eef3ff] text-[#315fcf] transition-all duration-300 group-hover:bg-[#315fcf] group-hover:text-white">
+                        <Icon size={19} strokeWidth={1.8} />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="mt-5">
+                    <h3 className="text-lg font-bold text-[#0b1220]">
+                      {capability.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-6 text-[#64748b]">
+                      {capability.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#315fcf] transition-all duration-300 group-hover:w-full" />
                 </div>
-
-                {/* Content */}
-                <div className="mt-10">
-                  <h3 className="text-lg font-bold text-[#0b1220]">
-                    {capability.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-[#64748b]">
-                    {capability.description}
-                  </p>
-                </div>
-
-                {/* Bottom accent */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#315fcf] transition-all duration-300 group-hover:w-full" />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -253,9 +273,10 @@ const ProjectDetails = () => {
         <Container>
           {/* Heading */}
           <div className="max-w-[700px]">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#315fcf]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
               Product Experience
-            </p>
+            </div>
 
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
               Designed to keep the shopping experience simple.
@@ -343,9 +364,10 @@ const ProjectDetails = () => {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             {/* LEFT */}
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#315fcf]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
                 Key Features
-              </p>
+              </div>
 
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
                 Built with the features needed to run the platform.
@@ -384,9 +406,10 @@ const ProjectDetails = () => {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             {/* LEFT */}
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#315fcf]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
                 Technology
-              </p>
+              </div>
 
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
                 A modern stack built for flexibility and scale.
@@ -400,26 +423,43 @@ const ProjectDetails = () => {
 
             {/* RIGHT */}
             <div className="divide-y divide-slate-200 border-y border-slate-200">
-              {project.stack.map((item) => (
-                <div
-                  key={item.category}
-                  className="grid gap-3 py-6 sm:grid-cols-[180px_1fr] sm:items-center"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    {item.category}
-                  </p>
+              {project.stack.map((item) => {
+                const config = technologyConfig[item.technology];
+                const Icon = config?.icon;
 
-                  <div>
-                    <h3 className="text-base font-bold text-[#0b1220]">
-                      {item.technology}
-                    </h3>
-
-                    <p className="mt-1 text-sm leading-6 text-[#64748b]">
-                      {item.description}
+                return (
+                  <div
+                    key={item.category}
+                    className="grid gap-3 py-6 sm:grid-cols-[180px_1fr] sm:items-center"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+                      {item.category}
                     </p>
+
+                    <div className="flex items-start gap-3">
+                      {Icon && (
+                        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#eef3ff]">
+                          <Icon
+                            size={18}
+                            strokeWidth={1.8}
+                            style={{ color: config.color }}
+                          />
+                        </div>
+                      )}
+
+                      <div>
+                        <h3 className="text-base font-bold text-[#0b1220]">
+                          {item.technology}
+                        </h3>
+
+                        <p className="mt-1 text-sm leading-6 text-[#64748b]">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </Container>
@@ -437,9 +477,10 @@ const ProjectDetails = () => {
             <div className="relative z-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
               {/* Content */}
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-400">
+                <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#4d7ff5]/25 bg-[#4d7ff5]/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#a8beff] backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#4d7ff5] shadow-[0_0_10px_rgba(77,127,245,0.8)]" />
                   Have a product idea like this?
-                </p>
+                </div>
 
                 <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Let&apos;s build it together.

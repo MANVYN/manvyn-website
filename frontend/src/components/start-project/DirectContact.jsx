@@ -6,7 +6,6 @@ const DirectContact = () => {
     <section className="bg-white py-10 lg:py-14">
       <Container>
         <div className="grid overflow-hidden rounded-2xl border border-slate-200 sm:grid-cols-2">
-          
           {/* Email */}
           <div className="flex items-center gap-5 p-6 sm:p-8">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#315fcf]/10 text-[#315fcf]">
@@ -26,7 +25,7 @@ const DirectContact = () => {
                 href="mailto:hello@MANVYN.com"
                 className="mt-1 inline-block text-sm font-semibold text-[#315fcf] hover:text-[#244aa8]"
               >
-                hello@MANVYN.com
+                hello@manvyn.com
               </a>
             </div>
           </div>
@@ -47,7 +46,6 @@ const DirectContact = () => {
               </p>
             </div>
           </div>
-
         </div>
       </Container>
     </section>

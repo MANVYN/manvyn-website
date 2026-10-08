@@ -1,6 +1,5 @@
 import Visit from "../models/Visit.js";
 
-
 export const trackVisit = async (req, res) => {
   try {
     // Ignore marked internal devices
@@ -19,9 +18,7 @@ export const trackVisit = async (req, res) => {
     const page = req.body.page || "/";
 
     // Don't count the same IP + page again within 30 minutes
-    const thirtyMinutesAgo = new Date(
-      Date.now() - 30 * 60 * 1000
-    );
+    const thirtyMinutesAgo = new Date(Date.now() - 30 * 60 * 1000);
 
     const recentVisit = await Visit.findOne({
       ip,
@@ -55,7 +52,6 @@ export const trackVisit = async (req, res) => {
     });
   }
 };
-
 
 export const ignoreThisDevice = (req, res) => {
   res.cookie("manvyn_internal", "true", {

@@ -18,3 +18,13 @@ build/
 # Editor
 .vscode/
 .idea/
+
+# Self
+notes.txt
+
+# Testing
+frontend/e2e/
+frontend/playwright.config.js
+frontend/test-results/
+frontend/playwright-report/
+frontend/blob-report/

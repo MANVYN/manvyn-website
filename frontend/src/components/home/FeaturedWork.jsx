@@ -7,31 +7,20 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { projects } from "../../data/projects";
+import { projects, projectCategories } from "../../data/projects";
 import Container from "../common/Container";
 
 const FeaturedWork = () => {
-  const getProjectIcon = (category) => {
-    if (category.toLowerCase().includes("e-commerce")) {
-      return <ShoppingCart size={15} />;
-    }
-
-    if (category.toLowerCase().includes("web application")) {
-      return <Users size={15} />;
-    }
-
-    return <Car size={15} />;
-  };
-
   return (
     <section className="bg-white py-20 lg:py-24">
       <Container>
         {/* Section heading */}
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
               Selected Work
-            </p>
+            </div>
 
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.02em] text-[#0b1220] sm:text-4xl">
               Built for real businesses
@@ -54,18 +43,14 @@ const FeaturedWork = () => {
         {/* Projects */}
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {projects.slice(0, 3).map((project) => (
-            // <article
-            //   key={project.title}
-            //   className="group overflow-hidden rounded-3xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_20px_50px_rgba(11,18,32,0.08)]"
-            // >
             <article
               key={project.title}
-              className="group overflow-hidden rounded-3xl border border-slate-300 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_20px_50px_rgba(11,18,32,0.08)]"
+              className="p-2 group overflow-hidden rounded-2xl border border-slate-300 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_20px_50px_rgba(11,18,32,0.08)]"
             >
               {/* Project image */}
               <Link
                 to={`/work/${project.slug}`}
-                className="relative block aspect-[16/10] overflow-hidden bg-slate-100"
+                className="relative block aspect-[16/10] overflow-hidden bg-slate-100 rounded-2xl "
               >
                 <img
                   src={project.heroImage}
@@ -85,14 +70,23 @@ const FeaturedWork = () => {
               </Link>
 
               {/* Content */}
-              <div className="p-6 sm:p-7">
+              <div className="p-5 sm:p-5">
                 {/* Category */}
-                <div className="flex items-center gap-2">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#eef3ff] text-[#315fcf]">
-                    {getProjectIcon(project.category)}
+
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#cdd9f2] bg-[#f1f5ff] px-3 py-1.5">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#315fcf]/10 text-[#315fcf]">
+                    {(() => {
+                      const category = projectCategories.find(
+                        (item) => item.name === project.category,
+                      );
+
+                      const Icon = category?.icon;
+
+                      return Icon ? <Icon size={13} strokeWidth={2} /> : null;
+                    })()}
                   </span>
 
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#315fcf]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#315fcf]">
                     {project.category}
                   </p>
                 </div>
@@ -103,14 +97,15 @@ const FeaturedWork = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="mt-3 text-sm leading-6 text-[#64748b]">
+
+                <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#64748b]">
                   {project.description}
                 </p>
 
                 {/* CTA */}
                 <Link
                   to={`/work/${project.slug}`}
-                  className="mt-7 inline-flex items-center gap-3 text-sm font-semibold text-[#0b1220] transition-colors hover:text-[#315fcf]"
+                  className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-[#0b1220] transition-colors hover:text-[#315fcf]"
                 >
                   View Project
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#eef3ff] text-[#315fcf] transition-all duration-300 group-hover:translate-x-1">

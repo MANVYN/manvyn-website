@@ -1,9 +1,4 @@
-import {
-  Building2,
-  Rocket,
-  Store,
-  Users,
-} from "lucide-react";
+import { Building2, Rocket, Store, Users } from "lucide-react";
 
 import Container from "../common/Container";
 
@@ -37,7 +32,6 @@ const audiences = [
 const Audience = () => {
   return (
     <section className="bg-white py-20 lg:py-24">
-
       <Container>
         {/* Heading */}
         <div className="mx-auto max-w-[680px] text-center">

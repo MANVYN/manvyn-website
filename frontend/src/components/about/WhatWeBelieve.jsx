@@ -33,9 +33,10 @@ const WhatWeBelieve = () => {
     <section className="bg-[#0f1f45] py-14 lg:py-22">
       <Container>
         <div>
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#315fcf]">
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#4d7ff5]/25 bg-[#4d7ff5]/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#a8beff] backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#4d7ff5] shadow-[0_0_10px_rgba(77,127,245,0.8)]" />
             What We Believe
-          </span>
+          </div>
 
           <h2 className="mt-5 max-w-[650px] text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             Principles that guide how we build.
@@ -52,17 +53,15 @@ const WhatWeBelieve = () => {
           {beliefs.map((belief, index) => (
             <div
               key={belief.number}
-              className={`px-7 py-4 lg:px-10 lg:py-5 ${
+              className={`group px-7 py-4 lg:px-10 lg:py-5 ${
                 index % 2 === 0 ? "sm:border-r sm:border-white/10" : ""
-              } ${
-                index < 2 ? "border-b border-white/10" : ""
-              }`}
+              } ${index < 2 ? "border-b border-white/10" : ""}`}
             >
-              <span className="text-sm font-bold text-[#315fcf]">
+              <span className="text-sm font-bold text-white group-hover:text-[#315fcf]">
                 {belief.number}
               </span>
 
-              <h3 className="mt-6 text-xl font-semibold text-white lg:text-2xl">
+              <h3 className="mt-6 text-xl font-semibold text-white lg:text-2xl group-hover:text-[#315fcf]">
                 {belief.title}
               </h3>
 

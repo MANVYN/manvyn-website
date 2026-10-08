@@ -7,7 +7,7 @@ import Container from "../common/Container";
 const Process = () => {
   return (
     <section className="bg-[#e7ebf1] py-20 lg:py-24">
-    {/* <section className="bg-white py-20 lg:py-24"> */}
+      {/* <section className="bg-white py-20 lg:py-24"> */}
       <Container>
         {/* Heading */}
         <div className="mx-auto max-w-[650px] text-center">
@@ -29,7 +29,6 @@ const Process = () => {
         <div className="relative mt-14 grid gap-8 md:grid-cols-4 md:gap-5">
           {process.map((item, index) => (
             <div key={item.step} className="relative">
-
               {/* Connector */}
               {index !== process.length - 1 && (
                 <div className="absolute left-[calc(100%+10px)] top-7 hidden h-px w-[calc(100%-20px)] bg-slate-200 md:block" />

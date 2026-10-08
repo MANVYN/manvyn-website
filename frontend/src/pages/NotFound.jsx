@@ -15,8 +15,8 @@ const NotFound = () => {
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-600">
-            The page you're looking for may have been moved, removed, or the
-            URL may be incorrect.
+            The page you're looking for may have been moved, removed, or the URL
+            may be incorrect.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -27,7 +27,6 @@ const NotFound = () => {
               <Home size={17} />
               Back to Home
             </Link>
-
           </div>
         </div>
       </section>

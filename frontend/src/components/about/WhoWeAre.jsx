@@ -8,19 +8,20 @@ const WhoWeAre = () => {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           {/* Left */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#315fcf]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
               Who We Are
-            </span>
+            </div>
 
             <h2 className="mt-5 max-w-[650px] text-4xl font-semibold tracking-tight text-[#0f1f45] sm:text-5xl">
               A development partner for businesses that want to grow.
             </h2>
 
             <p className="mt-6 max-w-[650px] text-base leading-7 text-[#64748b] sm:text-lg">
-              MANVYN is a web development studio focused on building
-              practical digital solutions for businesses and startups. We
-              combine thoughtful design, modern technology and a clear
-              understanding of your business goals.
+              MANVYN is a web development studio focused on building practical
+              digital solutions for businesses and startups. We combine
+              thoughtful design, modern technology and a clear understanding of
+              your business goals.
             </p>
           </div>
 

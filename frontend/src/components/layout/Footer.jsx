@@ -129,15 +129,15 @@ const Footer = () => {
 
             {/* Socials */}
             <div className="mt-6 flex items-center gap-3">
-              {/* <a
-                href="https://www.linkedin.com/in/manvyn/"
+              <a
+                href="https://www.linkedin.com/company/manvyn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="MANVYN on LinkedIn"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-all hover:border-white/20 hover:bg-white/5 hover:text-white"
               >
                 <FaLinkedinIn size={16} />
-              </a> */}
+              </a>
 
               <a
                 href="https://www.instagram.com/manvyn.dev/"

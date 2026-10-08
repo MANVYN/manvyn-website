@@ -8,7 +8,6 @@ const ServicesCTA = () => {
     <section className="bg-white py-16 lg:py-20">
       <Container>
         <div className="rounded-3xl bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#1d3f91] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-16">
-          
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Ready to build something
             <br className="hidden sm:block" /> for your business?
