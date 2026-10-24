@@ -66,3 +66,10 @@ a {
 button {
   cursor: pointer;
 }
+
+
+@keyframes border-progress {
+  to {
+    stroke-dashoffset: -100;
+  }
+}

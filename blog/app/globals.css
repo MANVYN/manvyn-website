@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+
+:root {
+  /* Brand */
+  --color-navy: #0b1220;
+  --color-navy-light: #162033;
+
+  --color-blue: #315fcf;
+  --color-blue-dark: #244aa8;
+  --color-cyan: #3b82b6;
+
+  /* Base */
+  --color-white: #ffffff;
+  --color-surface: #f8fafc;
+  --color-border: #e5e7eb;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+@keyframes border-progress {
+  to {
+    stroke-dashoffset: -100;
+  }
+}

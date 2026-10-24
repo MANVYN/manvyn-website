@@ -51,11 +51,11 @@ const WhoWeWorkWith = () => {
                   : ""
               }`}
             >
-              <span className="text-sm font-bold text-white  group-hover:text-[#315fcf]">
+              <span className="text-sm font-bold text-white  group-hover:text-[#ffb200]">
                 {audience.number}
               </span>
 
-              <h3 className="mt-7 text-xl font-semibold tracking-tight text-white transition-colors duration-300 group-hover:text-[#315fcf]">
+              <h3 className="mt-7 text-xl font-semibold tracking-tight text-white transition-colors duration-300 group-hover:text-[#ffb200]">
                 {audience.title}
               </h3>
 

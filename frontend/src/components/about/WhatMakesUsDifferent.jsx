@@ -50,12 +50,12 @@ const WhatMakesUsDifferent = () => {
                 key={item.number}
                 className="group grid gap-4 border-b border-slate-200 py-7 transition-colors duration-300 sm:grid-cols-[60px_1fr] sm:gap-6"
               >
-                <span className="text-sm font-bold text-white group-hover:text-[#315fcf]">
+                <span className="text-sm font-bold text-white group-hover:text-[#ffb200]">
                   {item.number}
                 </span>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-[#315fcf]">
+                  <h3 className="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-[#ffb200]">
                     {item.title}
                   </h3>
 

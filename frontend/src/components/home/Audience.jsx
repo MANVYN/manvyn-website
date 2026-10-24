@@ -50,15 +50,42 @@ const Audience = () => {
         </div>
 
         {/* Audience cards */}
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div 
+        className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {audiences.map((audience) => {
             const Icon = audience.icon;
 
             return (
-              <div
-                key={audience.title}
-                className="rounded-2xl border border-slate-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-lg hover:shadow-slate-900/5"
-              >
+              // <div
+              //   key={audience.title}
+              //   className="rounded-2xl border border-slate-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-lg hover:shadow-slate-900/5"
+              // >
+             <div
+  key={audience.title}
+  className="group relative rounded-2xl border border-slate-200 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/5"
+>
+  <svg
+    className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+    aria-hidden="true"
+  >
+    <rect
+      x="0.5"
+      y="0.5"
+      width="calc(100% - 1px)"
+      height="calc(100% - 1px)"
+      rx="15"
+      fill="none"
+      stroke="#315fcf"
+      strokeWidth="1.5"
+      pathLength="100"
+      strokeDasharray="15 85"
+      strokeDashoffset="0"
+      className="opacity-0 transition-opacity duration-300 group-hover:animate-[border-progress_2s_linear_infinite] group-hover:opacity-100"
+    />
+  </svg>
+
+  {/* Your existing card content */}
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#315fcf]">
                   <Icon size={21} strokeWidth={2} />
                 </div>

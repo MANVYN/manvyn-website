@@ -9,6 +9,7 @@ import Process from "../components/home/Process";
 import Audience from "../components/home/Audience";
 import FinalCTA from "../components/home/FinalCTA";
 import SEO from "../components/common/SEO";
+import RecentBlogs from "../components/home/RecentBlogs";
 
 const Home = () => {
   useEffect(() => {
@@ -36,6 +37,7 @@ const Home = () => {
       <FeaturedWork />
       <Process />
       <Audience />
+      <RecentBlogs />
       <FinalCTA />
     </>
   );

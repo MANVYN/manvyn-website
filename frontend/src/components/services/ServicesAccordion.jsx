@@ -22,7 +22,7 @@ const ServicesAccordion = () => {
           <div
             key={service.id}
             className={`border-b border-slate-200 transition-colors duration-300 ${
-              isOpen ? "bg-slate-50" : "hover:bg-slate-50"
+              isOpen ? "bg-slate-50" : "hover:bg-[#e9e9ed]"
             }`}
           >
             {/* Full-width clickable area */}
@@ -86,7 +86,7 @@ const ServicesAccordion = () => {
             >
               <div className="overflow-hidden">
                 <Container>
-                  <div className="grid gap-8 border-t border-slate-200 py-8 lg:grid-cols-[40%_30%_30%]">
+                  <div className="grid gap-8 border-t border-slate-200 py-8 lg:grid-cols-[33%_34%_33%]">
                     {/* Who it's for */}
                     <div>
                       <h4 className="text-md font-semibold text-[#0b1220]">

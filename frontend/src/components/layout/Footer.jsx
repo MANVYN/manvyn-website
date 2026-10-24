@@ -1,192 +1,167 @@
 import { Link } from "react-router-dom";
-
-import logo from "../../assets/images/manvyn-logo-white.png";
-import Container from "../common/Container";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
-import { FaInstagram, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import logo from "../../assets/images/manvyn-logo-white.png";
 
-const Footer = () => {
+const BLOG_URL = `${import.meta.env.VITE_BLOG_URL}/blog`;
+
+const companyLinks = [
+  { name: "Home", to: "/" },
+  { name: "About", to: "/about" },
+  { name: "Work", to: "/work" },
+  { name: "Services", to: "/services" },
+];
+
+const serviceLinks = [
+  "Websites",
+  "E-commerce",
+  "Web Applications",
+  "Custom Development",
+];
+
+const socials = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/manvyn/",
+    Icon: FaLinkedinIn,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/manvyn.dev/",
+    Icon: FaInstagram,
+  },
+];
+
+const linkClass =
+  "w-fit text-[13px] text-[#8a95b3] transition-colors duration-200 hover:text-white";
+
+const titleClass =
+  "text-[10px] font-bold uppercase tracking-[0.2em] text-[#5d6a8e]";
+
+export default function Footer() {
   return (
-    <footer className="bg-[#14223d] text-white">
-      <Container>
-        <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:py-16">
+    <footer className="border-t border-[#2f55d4]/40 bg-[#0a1124] text-white">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-8">
           {/* Brand */}
-          <div className="max-w-[320px]">
-            <Link to="/" className="inline-block">
+          <div className="max-w-[300px]">
+            <Link
+              to="/"
+              aria-label="MANVYN home"
+              className="inline-block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5b82f0]/60"
+            >
               <img
                 src={logo}
                 alt="MANVYN"
-                className="h-18 w-auto object-contain"
+                width={180}
+                height={72}
+                className="h-14 w-auto object-contain"
               />
             </Link>
 
-            <p className="mt-5 text-sm leading-6 text-slate-400">
-              We design and build modern websites, e-commerce experiences and
-              web applications for businesses and startups.
+            <p className="mt-3 text-[13px] leading-6 text-[#8a95b3]">
+              Modern websites, e-commerce and web applications for businesses
+              and startups.
             </p>
-
-            <Link
-              to="/start-project"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-400 transition-colors hover:text-blue-300"
-            >
-              Start a Project
-              <ArrowUpRight size={16} />
-            </Link>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-white">Company</h3>
-
-            <nav className="mt-5 flex flex-col gap-3">
-              <Link
-                to="/"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Home
-              </Link>
-
-              <Link
-                to="/about"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                About
-              </Link>
-
-              <Link
-                to="/work"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Work
-              </Link>
-
-              <Link
-                to="/services"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Services
-              </Link>
+            <h3 className={titleClass}>Company</h3>
+            <nav aria-label="Company" className="mt-4 flex flex-col gap-2.5">
+              {companyLinks.map((link) => (
+                <Link key={link.name} to={link.to} className={linkClass}>
+                  {link.name}
+                </Link>
+              ))}
+              <a href={BLOG_URL} className={linkClass}>
+                Blog
+              </a>
             </nav>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-white">Services</h3>
-
-            <nav className="mt-5 flex flex-col gap-3">
-              <Link
-                to="/services"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Websites
-              </Link>
-
-              <Link
-                to="/services"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                E-commerce
-              </Link>
-
-              <Link
-                to="/services"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Web Applications
-              </Link>
-
-              <Link
-                to="/services"
-                className="text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                Custom Development
-              </Link>
+            <h3 className={titleClass}>Services</h3>
+            <nav aria-label="Services" className="mt-4 flex flex-col gap-2.5">
+              {serviceLinks.map((name) => (
+                <Link key={name} to="/services" className={linkClass}>
+                  {name}
+                </Link>
+              ))}
             </nav>
           </div>
 
-          {/* Let's Talk */}
+          {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-white">Let's Talk</h3>
+            <h3 className={titleClass}>Let's talk</h3>
 
-            <p className="mt-5 text-sm leading-6 text-slate-400">
-              Have an idea or project in mind? We'd love to hear about it.
-            </p>
-
-            <div className="mt-5 space-y-3">
-              <a
-                href="mailto:hello@manvyn.com"
-                className="flex items-center gap-3 text-sm text-slate-400 transition-colors hover:text-white"
-              >
-                <Mail size={16} />
-                hello@manvyn.com
-              </a>
-
-              <div className="flex items-center gap-3 text-sm text-slate-400">
-                <MapPin size={16} />
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <a
+                  href="mailto:hello@manvyn.com"
+                  className="flex items-center gap-2.5 text-[13px] text-[#8a95b3] transition-colors hover:text-white"
+                >
+                  <Mail size={15} className="shrink-0 text-[#5b82f0]" />
+                  hello@manvyn.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5 text-[13px] text-[#8a95b3]">
+                <MapPin size={15} className="shrink-0 text-[#5b82f0]" />
                 India
-              </div>
-            </div>
+              </li>
+            </ul>
 
-            {/* Socials */}
-            <div className="mt-6 flex items-center gap-3">
-              <a
-                href="https://www.linkedin.com/company/manvyn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="MANVYN on LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-all hover:border-white/20 hover:bg-white/5 hover:text-white"
+            <div className="mt-5 flex items-center gap-2.5">
+              <Link
+                to="/start-project"
+                className="group inline-flex items-center gap-1.5 rounded-md bg-[#2f55d4] px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#3f68e8]"
               >
-                <FaLinkedinIn size={16} />
-              </a>
+                Start a Project
+                <ArrowUpRight
+                  size={14}
+                  className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </Link>
 
-              <a
-                href="https://www.instagram.com/manvyn.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="MANVYN on Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-all hover:border-white/20 hover:bg-white/5 hover:text-white"
-              >
-                <FaInstagram size={16} />
-              </a>
-
-              {/* <a
-                href="https://github.com/MANVYN/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="MANVYN on GitHub"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-all hover:border-white/20 hover:bg-white/5 hover:text-white"
-              >
-                <FaGithub size={16} />
-              </a> */}
+              {socials.map(({ name, href, Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`MANVYN on ${name}`}
+                  className="flex h-8 w-8 items-center justify-center rounded-md border border-white/10 text-[#8a95b3] transition-colors hover:border-[#2f55d4] hover:bg-[#2f55d4] hover:text-white"
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="flex flex-col gap-4 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-slate-500">
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-3 border-t border-white/[0.07] py-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-[#5d6a8e]">
             © {new Date().getFullYear()} MANVYN. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5">
             <Link
               to="/privacy-policy"
-              className="text-xs text-slate-500 transition-colors hover:text-white"
+              className="text-xs text-[#5d6a8e] transition-colors hover:text-white"
             >
               Privacy Policy
             </Link>
-
             <Link
               to="/terms"
-              className="text-xs text-slate-500 transition-colors hover:text-white"
+              className="text-xs text-[#5d6a8e] transition-colors hover:text-white"
             >
               Terms
             </Link>
           </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
-};
-
-export default Footer;
+}

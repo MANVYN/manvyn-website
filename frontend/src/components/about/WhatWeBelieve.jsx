@@ -57,11 +57,11 @@ const WhatWeBelieve = () => {
                 index % 2 === 0 ? "sm:border-r sm:border-white/10" : ""
               } ${index < 2 ? "border-b border-white/10" : ""}`}
             >
-              <span className="text-sm font-bold text-white group-hover:text-[#315fcf]">
+              <span className="text-sm font-bold text-white group-hover:text-[#ffb200]">
                 {belief.number}
               </span>
 
-              <h3 className="mt-6 text-xl font-semibold text-white lg:text-2xl group-hover:text-[#315fcf]">
+              <h3 className="mt-6 text-xl font-semibold text-white lg:text-2xl group-hover:text-[#ffb200]">
                 {belief.title}
               </h3>
 
