@@ -6,18 +6,20 @@ import { sanityClient } from "../../lib/sanity";
 const BLOG_URL = `${import.meta.env.VITE_BLOG_URL}/blog`;
 
 const RECENT_BLOGS_QUERY = `
-  *[_type == "post"]
-  | order(_createdAt desc)[0...10] {
+  *[
+    _type == "post" &&
+    defined(slug.current) &&
+    defined(publishedAt) &&
+    publishedAt <= now()
+  ]
+  | order(publishedAt desc)[0...3] {
     _id,
     title,
     "slug": slug.current,
     excerpt,
     publishedAt,
-    _createdAt,
     mainImage {
-      asset->{
-        url
-      },
+      asset->{ url },
       alt
     },
     "categories": categories[]->title

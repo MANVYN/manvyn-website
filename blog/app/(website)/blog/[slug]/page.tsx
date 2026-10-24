@@ -11,6 +11,8 @@ import { connection } from "next/server";
 import { BLOG_DETAIL_QUERY } from "@/sanity/lib/queries";
 
 import PortableTextRenderer from "@/components/PortableTextRenderer";
+import NotFound from "@/app/not-found";
+import WebsiteShell from "@/components/WebsiteShell";
 
 const SITE_URL = "https://www.manvyn.com";
 
@@ -138,21 +140,28 @@ async function BlogPostContent({ params }: Props) {
 
   const { slug } = await params;
 
+  const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
+
+
   const post = await client.fetch(
     BLOG_DETAIL_QUERY,
     { slug },
     { next: { revalidate: 60 } },
   );
 
+  // if (!post) {
+  //   notFound();
+  // }
   if (!post) {
-    notFound();
-  }
+    return <NotFound />;
+  } 
 
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage).width(1400).auto("format").url()
     : null;
 
   return (
+    <WebsiteShell>
     <main className="bg-[#f8f9fc]">
       {/* Blog hero */}
       <header className="relative isolate overflow-hidden bg-[#101e4b]">
@@ -266,17 +275,18 @@ async function BlogPostContent({ params }: Props) {
             forward.
           </p>
 
-          <a
-            href={`${process.env.NEXT_PUBLIC_WEBSITE_URL || "https://www.manvyn.com"}/start-project`}
+          <Link
+            href={`${WEBSITE_URL}/start-project` || '/'}
             className="mt-7 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#101e4b] transition hover:bg-blue-50"
           >
             Start a project
             <span className="ml-2" aria-hidden="true">
               →
             </span>
-          </a>
+          </Link>
         </section>
       </article>
     </main>
+    </WebsiteShell>
   );
 }

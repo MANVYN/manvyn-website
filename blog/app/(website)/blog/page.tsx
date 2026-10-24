@@ -4,6 +4,7 @@ import { client } from "@/sanity/lib/client";
 
 import { BLOG_LIST_QUERY } from "@/sanity/lib/queries";
 import BlogListing, { type BlogPost } from "@/components/BlogListing";
+import WebsiteShell from "@/components/WebsiteShell";
 
 const builder = createImageUrlBuilder(client);
 
@@ -53,5 +54,9 @@ export default async function BlogPage() {
     featured: post.featured ?? false,
   }));
 
-  return <BlogListing posts={posts} />;
+  return (
+  <WebsiteShell>
+    <BlogListing posts={posts} />
+  </WebsiteShell>
+);
 }

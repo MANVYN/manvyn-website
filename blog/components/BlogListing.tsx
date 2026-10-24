@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+
+
 export type BlogPost = {
   _id: string;
   title: string;
@@ -130,6 +132,8 @@ export default function BlogListing({
   const [search, setSearch] = useState("");
 
   const featured = posts.find((post) => post.featured) ?? posts[0];
+
+  const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
 
   const categories = useMemo(
     () => [
@@ -407,7 +411,7 @@ export default function BlogListing({
             </p>
 
             <Link
-              href="/"
+              href={`${WEBSITE_URL}/start-project` || '/'}
               className="mt-6 inline-flex items-center gap-3 rounded-md bg-[#2f55d4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#244bc4]"
             >
               Let's Talk <Arrow className="h-3.5 w-3.5" />
