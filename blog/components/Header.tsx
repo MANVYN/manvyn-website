@@ -121,7 +121,9 @@ export default function Header() {
           {/* Desktop CTA */}
           <a
             href={`${WEBSITE_URL}/start-project`}
-            className="group hidden items-center gap-2 rounded-md bg-[#101e4b] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#101e4b]/20 transition hover:bg-[#2f55d4] hover:shadow-md hover:shadow-[#2f55d4]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
+            className="group hidden items-center gap-2 rounded-md bg-[#12225a] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#12225a]/20 transition-all duration-300 hover:bg-[#1c347f] hover:shadow-md hover:shadow-[#12225a]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
+
+            // className="group hidden items-center gap-2 rounded-md bg-[#101e4b] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#101e4b]/20 transition hover:bg-[#2f55d4] hover:shadow-md hover:shadow-[#2f55d4]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
           >
             Start a Project
             <ArrowRight

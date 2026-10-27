@@ -145,292 +145,248 @@ const ProjectForm = () => {
     }
   };
 
+
+
+
+  // Put these above your component's return
+const inputBase =
+  "mt-1.5 h-11 w-full rounded-xl border bg-white px-4 text-sm text-[#0f1f45] outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-[#315fcf]/10";
+const fieldBorder = (hasError) =>
+  hasError
+    ? "border-red-300 focus:border-red-400"
+    : "border-slate-200 focus:border-[#315fcf]";
+const labelClass = "text-sm font-semibold text-[#0f1f45]";
+
+const highlights = [
+  { icon: Zap, title: "Quick response", text: "Reply within 1–2 business days" },
+  { icon: MessageCircle, title: "Direct communication", text: "Talk straight to our team" },
+  { icon: Globe, title: "Focused on your goals", text: "The right approach for your business" },
+];
+
   return (
-    <section className="bg-white py-16 lg:py-20">
-      <Container>
-        {/* <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-[#f8fafc] lg:grid-cols-[0.8fr_1.2fr]"> */}
-        <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-[#0f1f45] lg:grid-cols-[0.8fr_1.2fr]">
-          {/* Left Content */}
-          <div className="flex flex-col justify-between p-8 sm:p-10 lg:p-12">
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
-                Get In Touch
-              </span>
+    // JSX
+<section className="bg-white py-16 lg:py-20">
+  <Container>
+    <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[0.75fr_1.25fr]">
+      {/* Left: blue */}
+      <div className="relative flex flex-col justify-between gap-8 overflow-hidden bg-[#0f1f45] p-8 lg:p-10">
+        <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-[#315fcf]/30 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-[#7ea3ff]/10 blur-3xl" />
 
-              <h2 className="mt-5 max-w-[420px] text-4xl font-semibold tracking-tight text-white sm:text-4xl">
-                Tell us about your project.
-              </h2>
+        <div className="relative">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7ea3ff]">
+            Get In Touch
+          </span>
 
-              <p className="mt-6 max-w-[440px] text-base leading-7 text-[#64748b]">
-                Whether it's a new website, an e-commerce store, a custom web
-                application or a specific feature, share your requirements and
-                we'll help you find the right way forward.
-              </p>
-            </div>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Tell us about your project.
+          </h2>
 
-            <div className="mt-10 space-y-7">
-              <div className="flex gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#315fcf]/10 text-[#315fcf]">
-                  <Zap size={20} />
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-white">
-                    Quick response
-                  </h3>
-
-                  <p className="mt-1 text-sm leading-6 text-[#64748b]">
-                    We usually get back within 1–2 business days.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#315fcf]/10 text-[#315fcf]">
-                  <MessageCircle size={20} />
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-white">
-                    Direct communication
-                  </h3>
-
-                  <p className="mt-1 text-sm leading-6 text-[#64748b]">
-                    You'll connect directly with our team.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#315fcf]/10 text-[#315fcf]">
-                  <Globe size={20} />
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-white">
-                    Focused on your goals
-                  </h3>
-
-                  <p className="mt-1 text-sm leading-6 text-[#64748b]">
-                    We understand your business and suggest the right approach.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Form */}
-          <div className="bg-white p-6 sm:p-8 lg:p-10">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name + Email */}
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label className="text-sm font-semibold text-[#0f1f45]">
-                    Your Name <span className="text-[#315fcf]">*</span>
-                  </label>
-
-                  <input
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your name"
-                    className={`mt-2 h-12 w-full rounded-xl border bg-white px-4 text-sm text-[#0f1f45] outline-none transition focus:ring-2 focus:ring-[#315fcf]/10 ${
-                      errors.name
-                        ? "border-red-300 focus:border-red-400"
-                        : "border-slate-200 focus:border-[#315fcf]"
-                    }`}
-                  />
-
-                  {errors.name && (
-                    <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-semibold text-[#0f1f45]">
-                    Email Address <span className="text-[#315fcf]">*</span>
-                  </label>
-
-                  <input
-                    name="email"
-                    type="text"
-                    inputMode="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="you@example.com"
-                    className={`mt-2 h-12 w-full rounded-xl border bg-white px-4 text-sm text-[#0f1f45] outline-none transition focus:ring-2 focus:ring-[#315fcf]/10 ${
-                      errors.email
-                        ? "border-red-300 focus:border-red-400"
-                        : "border-slate-200 focus:border-[#315fcf]"
-                    }`}
-                  />
-
-                  {errors.email && (
-                    <p className="mt-1.5 text-xs text-red-500">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Company */}
-              <div>
-                <label className="text-sm font-semibold text-[#0f1f45]">
-                  Company / Business
-                </label>
-
-                <input
-                  name="company"
-                  type="text"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Your company or business name (optional)"
-                  className="mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-[#0f1f45] outline-none transition focus:border-[#315fcf] focus:ring-2 focus:ring-[#315fcf]/10"
-                />
-              </div>
-
-              {/* Service */}
-              <div>
-                <label className="text-sm font-semibold text-[#0f1f45]">
-                  What do you need? <span className="text-[#315fcf]">*</span>
-                </label>
-
-                <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {services.map((service) => {
-                    const Icon = service.icon;
-                    const active = formData.projectType === service.id;
-
-                    return (
-                      <button
-                        key={service.id}
-                        type="button"
-                        onClick={() => handleServiceSelect(service.id)}
-                        className={`flex min-h-[76px] items-center gap-3 rounded-xl border p-4 text-left transition ${
-                          active
-                            ? "border-[#315fcf] bg-[#315fcf]/5 text-[#315fcf]"
-                            : "border-slate-200 bg-white text-[#0f1f45] hover:border-[#315fcf]/40"
-                        }`}
-                      >
-                        <Icon
-                          size={20}
-                          className={
-                            active ? "text-[#315fcf]" : "text-slate-500"
-                          }
-                        />
-
-                        <span className="text-sm font-semibold">
-                          {service.title}
-                        </span>
-                      </button>
-                    );
-                  })}
-                  {errors.projectType && (
-                    <p className="mt-1.5 text-xs text-red-500">
-                      {errors.projectType}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Project Description */}
-              <div>
-                <label className="text-sm font-semibold text-[#0f1f45]">
-                  Tell us about your project{" "}
-                  <span className="text-[#315fcf]">*</span>
-                </label>
-
-                <textarea
-                  name="message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Share a few details about your project, goals, key features or any specific requirements..."
-                  className={`mt-2 w-full resize-none rounded-xl border bg-white px-4 py-3 text-sm leading-6 text-[#0f1f45] outline-none transition focus:ring-2 focus:ring-[#315fcf]/10 ${
-                    errors.message
-                      ? "border-red-300 focus:border-red-400"
-                      : "border-slate-200 focus:border-[#315fcf]"
-                  }`}
-                />
-
-                {errors.message && (
-                  <p className="mt-1.5 text-xs text-red-500">
-                    {errors.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Budget + Timeline */}
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label className="text-sm font-semibold text-[#0f1f45]">
-                    Budget Range
-                  </label>
-
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-[#64748b] outline-none transition focus:border-[#315fcf] focus:ring-2 focus:ring-[#315fcf]/10"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="Below ₹10k">Below ₹10k</option>
-                    <option value="₹10k – ₹25k">₹10k – ₹25k</option>
-                    <option value="₹25k – ₹50k">₹25k – ₹50k</option>
-                    <option value="₹50k – ₹1L">₹50k – ₹1L</option>
-                    <option value="₹1L+">₹1L+</option>
-                    <option value="Not decided">Not decided yet</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-semibold text-[#0f1f45]">
-                    Timeline
-                  </label>
-
-                  <select
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
-                    className="mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-[#64748b] outline-none transition focus:border-[#315fcf] focus:ring-2 focus:ring-[#315fcf]/10"
-                  >
-                    <option value="">Select timeline</option>
-                    <option value="ASAP">ASAP</option>
-                    <option value="1–3 months">1–3 months</option>
-                    <option value="3–6 months">3–6 months</option>
-                    <option value="Flexible">Flexible</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Success */}
-              {success && (
-                <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
-                  {success}
-                </div>
-              )}
-
-              {/* Error */}
-              {error && (
-                <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-                  {error}
-                </div>
-              )}
-
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#0f1f45] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#244aa8] disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {loading ? "Sending..." : "Send Enquiry"}
-                {!loading && <ArrowRight size={17} />}
-              </button>
-            </form>
-          </div>
+          <p className="mt-4 text-base leading-7 text-slate-300">
+            Share your requirements and we'll help you find the right way
+            forward.
+          </p>
         </div>
-      </Container>
-    </section>
+
+        <div className="relative space-y-4">
+          {highlights.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-[#7ea3ff]">
+                <Icon size={18} />
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold text-white">{title}</h3>
+                <p className="text-sm text-slate-400">{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: white form */}
+      <div className="bg-white p-6 sm:p-8 lg:p-10">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Name + Email */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className={labelClass}>
+                Your Name <span className="text-[#315fcf]">*</span>
+              </label>
+              <input
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                className={`${inputBase} ${fieldBorder(errors.name)}`}
+              />
+              {errors.name && (
+                <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>
+              )}
+            </div>
+
+            <div>
+              <label className={labelClass}>
+                Email Address <span className="text-[#315fcf]">*</span>
+              </label>
+              <input
+                name="email"
+                type="text"
+                inputMode="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                className={`${inputBase} ${fieldBorder(errors.email)}`}
+              />
+              {errors.email && (
+                <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Service */}
+          <div>
+            <label className={labelClass}>
+              What do you need? <span className="text-[#315fcf]">*</span>
+            </label>
+
+            <div className="mt-2 grid grid-cols-2 gap-2 lg:grid-cols-3">
+              {services.map((service) => {
+                const Icon = service.icon;
+                const active = formData.projectType === service.id;
+
+                return (
+                  <button
+                    key={service.id}
+                    type="button"
+                    onClick={() => handleServiceSelect(service.id)}
+                    className={`flex items-center gap-2.5 rounded-xl border px-3.5 py-3 text-left transition ${
+                      active
+                        ? "border-[#315fcf] bg-[#315fcf]/5 text-[#315fcf]"
+                        : "border-slate-200 bg-white text-[#0f1f45] hover:border-[#315fcf]/40"
+                    }`}
+                  >
+                    <Icon
+                      size={18}
+                      className={active ? "text-[#315fcf]" : "text-slate-500"}
+                    />
+                    <span className="text-sm font-semibold">
+                      {service.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {errors.projectType && (
+              <p className="mt-1.5 text-xs text-red-500">
+                {errors.projectType}
+              </p>
+            )}
+          </div>
+
+          {/* Message */}
+          <div>
+            <label className={labelClass}>
+              Tell us about your project{" "}
+              <span className="text-[#315fcf]">*</span>
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Share your goals, key features or any specific requirements..."
+              className={`mt-1.5 w-full resize-none rounded-xl border bg-white px-4 py-3 text-sm leading-6 text-[#0f1f45] outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-[#315fcf]/10 ${fieldBorder(
+                errors.message,
+              )}`}
+            />
+            {errors.message && (
+              <p className="mt-1.5 text-xs text-red-500">{errors.message}</p>
+            )}
+          </div>
+
+          {/* Optional details */}
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div>
+              <label className={labelClass}>
+                Company{" "}
+                <span className="font-normal text-slate-400">(optional)</span>
+              </label>
+              <input
+                name="company"
+                type="text"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Business name"
+                className={`${inputBase} ${fieldBorder(false)}`}
+              />
+            </div>
+
+            <div>
+              <label className={labelClass}>Budget</label>
+              <select
+                name="budget"
+                value={formData.budget}
+                onChange={handleChange}
+                className={`${inputBase} ${fieldBorder(false)} text-[#64748b]`}
+              >
+                <option value="">Select range</option>
+                <option value="Below ₹10k">Below ₹10k</option>
+                <option value="₹10k – ₹25k">₹10k – ₹25k</option>
+                <option value="₹25k – ₹50k">₹25k – ₹50k</option>
+                <option value="₹50k – ₹1L">₹50k – ₹1L</option>
+                <option value="₹1L+">₹1L+</option>
+                <option value="Not decided">Not decided yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label className={labelClass}>Timeline</label>
+              <select
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleChange}
+                className={`${inputBase} ${fieldBorder(false)} text-[#64748b]`}
+              >
+                <option value="">Select timeline</option>
+                <option value="ASAP">ASAP</option>
+                <option value="1–3 months">1–3 months</option>
+                <option value="3–6 months">3–6 months</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Success */}
+          {success && (
+            <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+              {success}
+            </div>
+          )}
+
+          {/* Error */}
+          {error && (
+            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {error}
+            </div>
+          )}
+
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#0f1f45] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#315fcf] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading ? "Sending..." : "Send Enquiry"}
+            {!loading && <ArrowRight size={17} />}
+          </button>
+        </form>
+      </div>
+    </div>
+  </Container>
+</section>
   );
 };
 

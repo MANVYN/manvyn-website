@@ -41,15 +41,15 @@ const Work = () => {
 
       {featuredProject && <FeaturedProject project={featuredProject} />}
 
-      <section className="bg-white">
-        <Container>
+      {/* <section className="bg-white"> */}
+        {/* <Container> */}
           <ProjectFilters
             categories={projectCategories}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
           />
-        </Container>
-      </section>
+        {/* </Container> */}
+      {/* </section> */}
 
       <ProjectGrid projects={filteredProjects} />
 

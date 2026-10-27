@@ -65,120 +65,119 @@ const ProjectDetails = () => {
       />
 
       {/* PROJECT HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f8fbff] via-white to-[#e7f0ff]">
-        {/* Background glow */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-40 -top-40 h-[550px] w-[550px] rounded-full bg-blue-100/50 blur-3xl" />
 
-          <div className="absolute left-1/3 top-1/2 h-[350px] w-[350px] rounded-full bg-indigo-50/60 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#101e4b]">
+  {/* Background glow */}
+  <div className="pointer-events-none absolute inset-0">
+    <div className="absolute -right-40 -top-40 h-[550px] w-[550px] rounded-full bg-blue-500/20 blur-3xl" />
+
+    <div className="absolute left-1/3 top-1/2 h-[350px] w-[350px] rounded-full bg-indigo-400/10 blur-3xl" />
+  </div>
+
+  <Container>
+    <div className="relative z-10 py-8 lg:py-12">
+      {/* Breadcrumb */}
+      <div className="mb-10 flex items-center gap-2 text-sm text-slate-400">
+        <Link
+          to="/work"
+          className="transition-colors hover:text-[#7ea3ff]"
+        >
+          Work
+        </Link>
+
+        <span>/</span>
+
+        <span className="text-white">{project.title}</span>
+      </div>
+
+      {/* Hero content */}
+      <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
+        {/* LEFT */}
+        <div className="max-w-[540px]">
+          {/* Category */}
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#7ea3ff]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7ea3ff]" />
+            {project.category}
+          </div>
+
+          {/* Title */}
+          <h1 className="text-5xl font-bold tracking-[-0.04em] text-white sm:text-5xl">
+            {project.title}
+          </h1>
+
+          {/* Description */}
+          <p className="mt-6 max-w-[500px] text-lg leading-8 text-slate-300">
+            {project.description}
+          </p>
+
+          {/* Technologies */}
+          <div className="mt-7 flex flex-wrap gap-2">
+            {project.technologies.map((technology) => {
+              const config = technologyConfig[technology];
+              const Icon = config?.icon;
+
+              return (
+                <span
+                  key={technology}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200"
+                >
+                  {Icon && (
+                    <Icon size={14} style={{ color: config.color }} />
+                  )}
+
+                  {technology}
+                </span>
+              );
+            })}
+          </div>
+
+          {/* Actions */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#101e4b] transition hover:bg-slate-100"
+              >
+                Visit Live Project
+                <ExternalLink size={16} />
+              </a>
+            )}
+
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-[#7ea3ff] hover:text-[#7ea3ff]"
+              >
+                View Code
+                <FaGithub size={17} />
+              </a>
+            )}
+          </div>
         </div>
 
-        <Container>
-          <div className="relative z-10 py-8 lg:py-12">
-            {/* Breadcrumb */}
-            <div className="mb-10 flex items-center gap-2 text-sm text-slate-500">
-              <Link
-                to="/work"
-                className="transition-colors hover:text-[#315fcf]"
-              >
-                Work
-              </Link>
+        {/* RIGHT: PROJECT IMAGE */}
+        <div className="relative flex items-center justify-center lg:justify-end">
+          <div className="pointer-events-none absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-400/20 blur-3xl" />
 
-              <span>/</span>
-
-              <span className="text-slate-900">{project.title}</span>
-            </div>
-
-            {/* Hero content */}
-            <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
-              {/* LEFT */}
-              <div className="max-w-[540px]">
-                {/* Category */}
-
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
-                  {project.category}
-                </div>
-
-                {/* Title */}
-                <h1 className="text-5xl font-bold tracking-[-0.04em] text-[#0b1220] sm:text-5xl">
-                  {project.title}
-                </h1>
-
-                {/* Description */}
-                <p className="mt-6 max-w-[500px] text-lg leading-8 text-[#64748b]">
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {project.technologies.map((technology) => {
-                    const config = technologyConfig[technology];
-                    const Icon = config?.icon;
-
-                    return (
-                      <span
-                        key={technology}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm"
-                      >
-                        {Icon && (
-                          <Icon size={14} style={{ color: config.color }} />
-                        )}
-
-                        {technology}
-                      </span>
-                    );
-                  })}
-                </div>
-
-                {/* Actions */}
-                <div className="mt-8 flex flex-wrap gap-3">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-[#0b1220] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#162033]"
-                    >
-                      Visit Live Project
-                      <ExternalLink size={16} />
-                    </a>
-                  )}
-
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-[#0b1220] transition hover:border-[#315fcf] hover:text-[#315fcf]"
-                    >
-                      View Code
-                      <FaGithub size={17} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* RIGHT — PROJECT IMAGE */}
-              <div className="relative flex items-center justify-center lg:justify-end">
-                <div className="pointer-events-none absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-200/30 blur-3xl" />
-
-                <img
-                  src={project.heroImage}
-                  alt={`${project.title} ${project.category} project`}
-                  width="1536"
-                  height="1024"
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                  // className="relative z-10 h-[380px] w-full max-w-[700px] rounded-2xl object-cover object-center drop-shadow-[0_30px_60px_rgba(37,99,235,0.16)] [mask-image:radial-gradient(ellipse_at_center,black_92%,transparent_100%)]"
-                  className="relative z-10 h-[380px] w-full max-w-[700px] rounded-2xl object-cover object-center drop-shadow-[0_30px_60px_rgba(37,99,235,0.16)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_2%,black_98%,transparent_100%),linear-gradient(to_right,transparent_0%,black_2%,black_98%,transparent_100%)] [mask-composite:intersect]"
-                />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+          <img
+            src={project.heroImage}
+            alt={`${project.title} ${project.category} project`}
+            width="1536"
+            height="1024"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="relative z-10 h-[380px] w-full max-w-[700px] rounded-2xl object-cover object-center drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_2%,black_98%,transparent_100%),linear-gradient(to_right,transparent_0%,black_2%,black_98%,transparent_100%)] [mask-composite:intersect]"
+          />
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
 
       {/* THE CHALLENGE */}
       <section className="bg-white py-20 lg:py-24">
@@ -269,33 +268,32 @@ const ProjectDetails = () => {
       </section>
 
       {/* PRODUCT EXPERIENCE */}
-      <section className="bg-white py-20 lg:py-24">
+
+      <section className="bg-[#101e4b] py-20 lg:py-24">
         <Container>
           {/* Heading */}
           <div className="max-w-[700px]">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#7ea3ff]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7ea3ff]" />
               Product Experience
             </div>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Designed to keep the shopping experience simple.
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-[#64748b]">
+            <p className="mt-5 text-lg leading-8 text-slate-300">
               Every part of ShopSphere was designed to make browsing, purchasing
               and managing orders feel clear and effortless.
             </p>
           </div>
 
-          {/* Screens */}
           {/* Gallery */}
-
           <div className="mt-14">
             <div className="grid items-stretch gap-6 lg:grid-cols-[1.2fr_1fr]">
-              {/* COLUMN A — BIG IMAGE */}
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-[#0c2e6f] p-2 sm:p-2">
-                <div className="h-full overflow-hidden rounded-2xl bg-white">
+              {/* COLUMN A: BIG IMAGE */}
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2">
+                <div className="h-full overflow-hidden rounded-xl bg-white">
                   <img
                     key={activeItem.image}
                     src={activeItem.image}
@@ -309,19 +307,18 @@ const ProjectDetails = () => {
                 </div>
               </div>
 
-              {/* COLUMN B — CONTENT + TWO IMAGES */}
+              {/* COLUMN B: CONTENT + TWO IMAGES */}
               <div className="flex min-h-full flex-col">
-                {/* Content */}
                 <div className="flex-1">
-                  <span className="text-sm font-semibold text-[#315fcf]">
+                  <span className="text-sm font-semibold text-[#7ea3ff]">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>
 
-                  <h3 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220]">
+                  <h3 className="mt-4 text-3xl font-bold tracking-tight text-white">
                     {activeItem.title}
                   </h3>
 
-                  <p className="mt-4 max-w-[520px] text-base leading-7 text-[#64748b]">
+                  <p className="mt-4 max-w-[520px] text-base leading-7 text-slate-300">
                     {activeItem.description}
                   </p>
                 </div>
@@ -338,9 +335,9 @@ const ProjectDetails = () => {
                         key={item.image}
                         type="button"
                         onClick={() => setActiveIndex(itemIndex)}
-                        className="group overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 transition-all duration-300 hover:border-[#315fcf]"
+                        className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 transition-all duration-300 hover:border-[#7ea3ff]"
                       >
-                        <div className="aspect-[4/3] overflow-hidden rounded-xl bg-slate-100">
+                        <div className="aspect-[4/3] overflow-hidden rounded-xl bg-white/10">
                           <img
                             src={item.image}
                             alt={`${project.title} - ${item.title}`}
@@ -401,69 +398,71 @@ const ProjectDetails = () => {
       </section>
 
       {/* TECHNOLOGY */}
-      <section className="bg-white py-20 lg:py-24">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            {/* LEFT */}
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#315fcf]/15 bg-[#315fcf]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#315fcf]" />
-                Technology
-              </div>
+      
 
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
-                A modern stack built for flexibility and scale.
-              </h2>
+      <section className="bg-[#0b1536] py-20 lg:py-24">
+  <Container>
+    <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      {/* LEFT */}
+      <div>
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#7ea3ff]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#7ea3ff]" />
+          Technology
+        </div>
 
-              <p className="mt-5 max-w-[480px] text-lg leading-8 text-[#64748b]">
-                ShopSphere uses a modern full-stack architecture to keep the
-                application maintainable, responsive and ready to evolve.
+        <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          A modern stack built for flexibility and scale.
+        </h2>
+
+        <p className="mt-5 max-w-[480px] text-lg leading-8 text-slate-300">
+          ShopSphere uses a modern full-stack architecture to keep the
+          application maintainable, responsive and ready to evolve.
+        </p>
+      </div>
+
+      {/* RIGHT */}
+      <div className="divide-y divide-white/10 border-y border-white/10">
+        {project.stack.map((item) => {
+          const config = technologyConfig[item.technology];
+          const Icon = config?.icon;
+
+          return (
+            <div
+              key={item.category}
+              className="grid gap-3 py-6 sm:grid-cols-[180px_1fr] sm:items-center"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+                {item.category}
               </p>
-            </div>
 
-            {/* RIGHT */}
-            <div className="divide-y divide-slate-200 border-y border-slate-200">
-              {project.stack.map((item) => {
-                const config = technologyConfig[item.technology];
-                const Icon = config?.icon;
-
-                return (
-                  <div
-                    key={item.category}
-                    className="grid gap-3 py-6 sm:grid-cols-[180px_1fr] sm:items-center"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
-                      {item.category}
-                    </p>
-
-                    <div className="flex items-start gap-3">
-                      {Icon && (
-                        <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#eef3ff]">
-                          <Icon
-                            size={18}
-                            strokeWidth={1.8}
-                            style={{ color: config.color }}
-                          />
-                        </div>
-                      )}
-
-                      <div>
-                        <h3 className="text-base font-bold text-[#0b1220]">
-                          {item.technology}
-                        </h3>
-
-                        <p className="mt-1 text-sm leading-6 text-[#64748b]">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
+              <div className="flex items-start gap-3">
+                {Icon && (
+                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10">
+                    <Icon
+                      size={18}
+                      strokeWidth={1.8}
+                      style={{ color: config.color }}
+                    />
                   </div>
-                );
-              })}
+                )}
+
+                <div>
+                  <h3 className="text-base font-bold text-white">
+                    {item.technology}
+                  </h3>
+
+                  <p className="mt-1 text-sm leading-6 text-slate-300">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </Container>
-      </section>
+          );
+        })}
+      </div>
+    </div>
+  </Container>
+</section>
 
       {/* FINAL CTA */}
       <section className="bg-white py-16 lg:py-20">

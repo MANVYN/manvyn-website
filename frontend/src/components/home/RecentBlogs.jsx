@@ -72,7 +72,7 @@ export default function RecentBlogs() {
 
 
 return (
-  <section className="relative overflow-hidden bg-[#0b1538] py-20 sm:py-24">
+  <section className="relative overflow-hidden bg-[#0f1f45] py-20 sm:py-24">
     {/* Subtle background glow */}
     <div
       aria-hidden="true"
@@ -172,7 +172,7 @@ return (
                   </h3>
 
                   {post.excerpt && (
-                    <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#a5b1d0] pb-5">
+                    <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#a5b1d0] mb-3">
                       {post.excerpt}
                     </p>
                   )}
@@ -199,9 +199,9 @@ return (
                     )}
                   </div>
 
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[#a8bbff] transition duration-300 group-hover:border-[#6486ff]/50 group-hover:bg-[#3155cc] group-hover:text-white">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[#a8bbff] transition duration-300 group-hover:border-[#6486ff]/50 group-hover:bg-[#3155cc] group-hover:text-white">
                       <ArrowRight
-                        size={16}
+                        size={14}
                         className="transition-transform group-hover:-rotate-45"
                       />
                     </span>

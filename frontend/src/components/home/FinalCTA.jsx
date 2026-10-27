@@ -10,7 +10,7 @@ const FinalCTA = () => {
         {/* <div className="relative overflow-hidden rounded-3xl bg-[#0b1220] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-16"> */}
         <div className="rounded-3xl bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#1d3f91] px-6 py-12 text-center sm:px-10 lg:px-16 lg:py-14">
           {/* Subtle background glow */}
-          <div className="pointer-events-none absolute -right-32 -top-32 h-72 w-72 rounded-full bg-[#315fcf]/20 blur-3xl" />
+          <div className="pointer-events-none absolute -right-0 -top-32 h-72 w-72 rounded-full bg-[#315fcf]/20 blur-3xl" />
 
           <div className="pointer-events-none absolute -bottom-40 -left-32 h-80 w-80 rounded-full bg-blue-900/20 blur-3xl" />
 
@@ -34,7 +34,7 @@ const FinalCTA = () => {
             {/* Single CTA */}
             <Link
               to="/start-project"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#0b1220] transition-all duration-200 hover:bg-slate-100"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#0b1220] transition-all duration-200 hover:bg-slate-100"
             >
               Let's Talk
               <ArrowRight size={17} />

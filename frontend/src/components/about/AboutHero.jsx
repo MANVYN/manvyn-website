@@ -4,7 +4,7 @@ import aboutLogo from "../../assets/images/about-hero.png";
 const AboutHero = () => {
   return (
     // <section className="overflow-hidden bg-[#0f1f45] py-20 lg:py-28">s
-    <section className="overflow-hidden bg-[#0f1f45] py-12 lg:py-12">
+    <section className="overflow-hidden bg-[#0f1f45] py-14 lg:py-16">
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Content */}
@@ -31,7 +31,7 @@ const AboutHero = () => {
               src={aboutLogo}
               alt=""
               aria-hidden="true"
-              className="w-full max-w-[560px] object-contain"
+              className="w-full max-w-[460px] object-contain"
             />
           </div>
         </div>

@@ -25,52 +25,60 @@ const steps = [
 
 const WhatHappensNext = () => {
   return (
-    <section className="bg-[#f8fafc] py-20 lg:py-24">
-      <Container>
-        <div className="mx-auto max-w-[750px] text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#315fcf]">
-            What Happens Next
-          </span>
+    <section className="relative overflow-hidden bg-[#0f1f45] py-20 lg:py-24">
+  {/* Background glow */}
+  <div className="pointer-events-none absolute inset-0">
+    <div className="absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#315fcf]/15 blur-3xl" />
+  </div>
 
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0b1220] sm:text-5xl">
-            From enquiry to next steps.
-          </h2>
+  <Container>
+    <div className="relative">
+      <div className="mx-auto max-w-[750px] text-center">
+        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7ea3ff]">
+          What Happens Next
+        </span>
 
-          <p className="mt-5 text-base leading-7 text-[#64748b] sm:text-lg">
-            A simple and transparent process to get your project moving.
-          </p>
-        </div>
+        <h2 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          From enquiry to next steps.
+        </h2>
 
-        <div className="relative mt-16 grid gap-12 lg:grid-cols-3 lg:gap-10">
-          {/* Connecting lines */}
-          <div className="absolute left-[16%] right-[16%] top-6 hidden h-px bg-slate-200 lg:block" />
+        <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
+          A simple and transparent process to get your project moving.
+        </p>
+      </div>
 
-          {steps.map((step) => {
-            const Icon = step.icon;
+      <div className="relative mt-16 grid gap-12 lg:grid-cols-3 lg:gap-10">
+        {/* Connecting line */}
+        <div className="absolute left-[16%] right-[16%] top-6 hidden h-px bg-gradient-to-r from-[#7ea3ff]/50 via-[#7ea3ff]/20 to-[#7ea3ff]/50 lg:block" />
 
-            return (
-              <div key={step.number} className="relative text-center">
-                <div className="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#eaf0ff] text-sm font-semibold text-[#315fcf]">
-                  {step.number}
-                </div>
+        {steps.map((step) => {
+          const Icon = step.icon;
 
-                <div className="mt-5 flex justify-center text-[#315fcf]">
-                  <Icon size={21} />
-                </div>
-
-                <h3 className="mt-4 text-xl font-semibold text-[#0b1220]">
-                  {step.title}
-                </h3>
-
-                <p className="mx-auto mt-3 max-w-[300px] text-sm leading-6 text-[#64748b]">
-                  {step.description}
-                </p>
+          return (
+            <div key={step.number} className="relative text-center">
+              {/* Solid badge so the line passes behind it cleanly */}
+              <div className="relative z-10 mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#7ea3ff]/30 bg-gradient-to-br from-[#315fcf] to-[#1c3a8a] text-sm font-semibold text-white shadow-[0_10px_30px_rgba(49,95,207,0.35)]">
+                {step.number}
               </div>
-            );
-          })}
-        </div>
-      </Container>
-    </section>
+
+              <div className="mt-5 flex justify-center text-[#7ea3ff]">
+                <Icon size={21} />
+              </div>
+
+              <h3 className="mt-4 text-xl font-semibold text-white">
+                {step.title}
+              </h3>
+
+              <p className="mx-auto mt-3 max-w-[300px] text-sm leading-6 text-slate-300">
+                {step.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </Container>
+</section>
   );
 };
 

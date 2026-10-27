@@ -4,7 +4,7 @@ import Container from "../common/Container";
 
 const WorkCTA = () => {
   return (
-    <section className="bg-white pb-20 lg:pb-24">
+    <section className="bg-white py-10 lg:py-14">
       <Container>
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f1f45] via-[#111d35] to-[#244aa8] px-6 py-14 sm:px-10 lg:px-16 lg:py-16">
           {/* Decorative glow */}

@@ -12,7 +12,7 @@ import Container from "../common/Container";
 
 const FeaturedWork = () => {
   return (
-    <section className="bg-white py-20 lg:py-24">
+    <section className="bg-white py-16 lg:py-16">
       <Container>
         {/* Section heading */}
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">

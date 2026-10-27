@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-
-
 export type BlogPost = {
   _id: string;
   title: string;
@@ -70,8 +68,6 @@ function Pill({
   );
 }
 
-
-
 function ArticleCard({ article }: { article: BlogPost }) {
   return (
     <article className="group overflow-hidden rounded-md border border-white/10 bg-[#15245a]/70 transition-all duration-300 hover:-translate-y-1 hover:border-[#4a6fe3]/60 hover:bg-[#182a66]">
@@ -92,13 +88,14 @@ function ArticleCard({ article }: { article: BlogPost }) {
             </div>
           )}
 
-          <span className="absolute bottom-0 left-3 translate-y-1/2 rounded-full border border-white/10 bg-[#1a2a63] px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-[#8fa8f7] shadow-sm">
+          {/* <span className="absolute bottom-0 left-3 translate-y-1/2 rounded-full border border-white/10 bg-[#1a2a63] px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-[#8fa8f7] shadow-sm"> */}
+          <span className="absolute bottom-5 left-3 translate-y-1/2 rounded-full border border-white/10 bg-[#1a2a63] px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-[#8fa8f7] shadow-sm">
             {article.categories[0] ?? "Insights"}
           </span>
         </div>
 
         <div className="flex min-h-[190px] flex-col p-4 pt-5">
-          <div className="flex flex-wrap items-center gap-2 text-[10px] text-[#8c98bd]">
+          <div className="flex flex-wrap items-center gap-2 text-[14px] text-[#8c98bd]">
             <time dateTime={article.publishedAt}>
               {formatDate(article.publishedAt)}
             </time>
@@ -106,11 +103,11 @@ function ArticleCard({ article }: { article: BlogPost }) {
             <span>{article.readTime ?? 5} min read</span>
           </div>
 
-          <h3 className="mt-2 text-[15px] font-semibold leading-[1.4] tracking-tight text-white transition-colors group-hover:text-[#8fa8f7]">
+          <h3 className="pt-3 text-[16px] font-semibold leading-[1.4] tracking-tight text-white transition-colors group-hover:text-[#8fa8f7]">
             {article.title}
           </h3>
 
-          <p className="mt-2 line-clamp-3 text-xs leading-[1.7] text-[#8c98bd]">
+          <p className="mt-2 line-clamp-3 text-[14px] leading-[1.4] text-[#8c98bd] pt-3">
             {article.excerpt}
           </p>
 
@@ -123,46 +120,39 @@ function ArticleCard({ article }: { article: BlogPost }) {
   );
 }
 
-export default function BlogListing({
-  posts,
-}: {
-  posts: BlogPost[];
-}) {
+export default function BlogListing({ posts }: { posts: BlogPost[] }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
 
   const featured = posts.find((post) => post.featured) ?? posts[0];
 
-  const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
-
   const categories = useMemo(
-    () => [
-      "All",
-      ...new Set(posts.flatMap((post) => post.categories)),
-    ],
-    [posts]
+    () => ["All", ...new Set(posts.flatMap((post) => post.categories))],
+    [posts],
   );
 
   const visiblePosts = useMemo(() => {
     const query = search.trim().toLowerCase();
 
-    return posts
-      // .filter((post) => post._id !== featured?._id)
-      .filter((post) => post._id)
-      .filter(
-        (post) =>
-          activeCategory === "All" ||
-          post.categories.includes(activeCategory)
-      )
-      .filter(
-        (post) =>
-          !query ||
-          post.title.toLowerCase().includes(query) ||
-          post.excerpt.toLowerCase().includes(query) ||
-          post.categories.some((category) =>
-            category.toLowerCase().includes(query)
-          )
-      );
+    return (
+      posts
+        // .filter((post) => post._id !== featured?._id)
+        .filter((post) => post._id)
+        .filter(
+          (post) =>
+            activeCategory === "All" ||
+            post.categories.includes(activeCategory),
+        )
+        .filter(
+          (post) =>
+            !query ||
+            post.title.toLowerCase().includes(query) ||
+            post.excerpt.toLowerCase().includes(query) ||
+            post.categories.some((category) =>
+              category.toLowerCase().includes(query),
+            ),
+        )
+    );
   }, [posts, featured, activeCategory, search]);
 
   const featuredMatches =
@@ -176,7 +166,7 @@ export default function BlogListing({
   return (
     <div className="bg-[#f8f9fc]">
       {/* Hero (navy) */}
-      <section className="relative isolate overflow-hidden bg-[#101e4b]">
+      <section className="relative isolate overflow-hidden bg-[#0f1f45]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-[#2f55d4]/30 blur-3xl"
@@ -199,9 +189,8 @@ export default function BlogListing({
             </h1>
 
             <p className="mt-5 max-w-lg text-sm leading-7 text-[#c3cbe6] sm:text-base">
-              Practical perspectives on web development, technology,
-              automation, and digital experiences to help you build,
-              scale and stay ahead.
+              Practical perspectives on web development, technology, automation,
+              and digital experiences to help you build, scale and stay ahead.
             </p>
 
             <a
@@ -242,9 +231,7 @@ export default function BlogListing({
             </div>
 
             <div className="absolute bottom-[8%] right-0 z-20 rounded-lg border border-white/10 bg-[#15245a]/90 p-4 shadow-xl shadow-black/30 backdrop-blur sm:right-[-1%]">
-              <p className="text-[10px] font-semibold text-[#8fa8f7]">
-                IDEAS
-              </p>
+              <p className="text-[10px] font-semibold text-[#8fa8f7]">IDEAS</p>
               <p className="mt-2 text-xs leading-5 text-[#c3cbe6]">
                 Execution
                 <br />
@@ -285,7 +272,8 @@ export default function BlogListing({
                     {featured.categories[0] ?? "Insights"}
                   </span>
                   <span className="text-[10px] text-[#6b7694]">
-                    {formatDate(featured.publishedAt)} <span className="mx-1">·</span>
+                    {formatDate(featured.publishedAt)}{" "}
+                    <span className="mx-1">·</span>
                     {featured.readTime ?? 5} min read
                   </span>
                 </div>
@@ -308,7 +296,7 @@ export default function BlogListing({
       )}
 
       {/* Latest articles (navy) */}
-      <section id="latest" className="bg-[#101e4b]">
+      <section id="latest" className="bg-[#0f1f45]">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -390,35 +378,48 @@ export default function BlogListing({
       </section>
 
       {/* CTA (light, bordered box like the About page) */}
-      <section className="bg-[#f8f9fc] px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-lg border border-[#2f55d4]/40 bg-gradient-to-br from-white via-white to-[#eef2fd] px-6 py-14 text-center sm:px-12 sm:py-16">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-24 left-1/2 h-48 w-[60%] -translate-x-1/2 rounded-full bg-[#2f55d4]/10 blur-3xl"
-          />
-
-          <div className="relative">
-            <Pill>Let's talk</Pill>
-
-            <h2 className="mx-auto mt-5 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-[#101e4b] sm:text-4xl">
-              Let's build something
-              <br className="hidden sm:block" /> meaningful.
-            </h2>
-
-            <p className="mx-auto mt-3 max-w-lg text-xs leading-6 text-[#5a6685] sm:text-sm">
-              Have an idea, a business challenge or a project in mind?
-              Let's talk about what you want to build.
-            </p>
-
-            <Link
-              href={`${WEBSITE_URL}/start-project` || '/'}
-              className="mt-6 inline-flex items-center gap-3 rounded-md bg-[#2f55d4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#244bc4]"
-            >
-              Let's Talk <Arrow className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTA />
     </div>
+  );
+}
+
+function CTA() {
+  const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
+
+  return (
+    <section className="bg-[#f8f9fc] px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-lg border border-[#2f55d4]/80 bg-gradient-to-br from-white via-white to-[#eef2fd] px-6 py-10 text-center sm:px-10 sm:py-10">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/6 h-48 w-[60%] -translate-x-1/2 rounded-full bg-[#2f55d4]/20 blur-3xl"
+        />
+
+        <div className="relative">
+          <Pill>Let's talk</Pill>
+
+          <h2 className="mx-auto mt-5 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-[#101e4b] sm:text-4xl">
+            Let's build something
+            <br className="hidden sm:block" /> meaningful.
+          </h2>
+
+          <p className="mx-auto mt-3 max-w-lg text-xs leading-6 text-[#5a6685] sm:text-sm">
+            Have an idea, a business challenge or a project in mind? Let's talk
+            about what you want to build.
+          </p>
+
+          <Link
+            href={`${WEBSITE_URL}/start-project` || "/"}
+            className="mt-6 inline-flex items-center gap-3 rounded-md bg-[#2f55d4] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#244bc4]"
+          >
+            Let's Talk <Arrow className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-20 left-5/5 h-48 w-[60%] -translate-x-1/2 rounded-full bg-[#2f55d4]/20 blur-3xl"
+        />
+      </div>
+    </section>
   );
 }

@@ -3,7 +3,7 @@ import Hero from "../../assets/images/start-project-hero.png";
 
 const StartProjectHero = () => {
   return (
-    <section className="relative overflow-hidden bg-[#14223d] py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#0f1f45] py-20 lg:py-24">
       {/* Background glow */}
       <div className="absolute -left-32 top-10 h-96 w-96 rounded-full bg-[#1d4ed8]/15 blur-[120px]" />
       <div className="absolute -right-20 top-0 h-[420px] w-[420px] rounded-full bg-[#2563eb]/10 blur-[140px]" />

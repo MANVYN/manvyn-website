@@ -164,7 +164,7 @@ async function BlogPostContent({ params }: Props) {
     <WebsiteShell>
     <main className="bg-[#f8f9fc]">
       {/* Blog hero */}
-      <header className="relative isolate overflow-hidden bg-[#101e4b]">
+      <header className="relative isolate overflow-hidden bg-[#0f1f45]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-[#2f55d4]/30 blur-3xl"
@@ -192,7 +192,7 @@ async function BlogPostContent({ params }: Props) {
             </div>
           )}
 
-          <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
             {post.title}
           </h1>
 
@@ -247,7 +247,7 @@ async function BlogPostContent({ params }: Props) {
 
         <div
           className="
-            mx-auto mt-10 max-w-3xl
+            mx-auto mt-10 max-w-5xl
             text-base leading-8 text-slate-700
             [&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:leading-tight [&_h2]:tracking-tight [&_h2]:text-slate-900
             [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-slate-900

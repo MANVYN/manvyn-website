@@ -91,7 +91,7 @@ export default function Header() {
               const classes = `group relative py-2 text-sm transition-colors ${
                 active
                   ? "font-semibold text-[#2f55d4]"
-                  : "font-medium text-[#101e4b] hover:text-[#2f55d4]"
+                  : "font-medium text-[#12225a] hover:text-[#2f55d4]"
               }`;
               const line = (
                 <span
@@ -123,7 +123,8 @@ export default function Header() {
           {/* Desktop CTA */}
           <Link
             to="/start-project"
-            className="group hidden items-center gap-2 rounded-md bg-[#101e4b] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#101e4b]/20 transition hover:bg-[#2f55d4] hover:shadow-md hover:shadow-[#2f55d4]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
+            className="group hidden items-center gap-2 rounded-md bg-[#12225a] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#12225a]/20 transition-all duration-300 hover:bg-[#1c347f] hover:shadow-md hover:shadow-[#12225a]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
+            // className="group hidden items-center gap-2 rounded-md bg-[#12225a] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#12225a]/20 transition hover:bg-[#2f55d4] hover:shadow-md hover:shadow-[#2f55d4]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
           >
             Start a Project
             <ArrowRight
@@ -143,8 +144,8 @@ export default function Header() {
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className={`inline-flex h-10 w-10 items-center justify-center rounded-md border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 md:hidden ${
               isMenuOpen
-                ? "border-[#101e4b] bg-[#101e4b] text-white"
-                : "border-[#dfe4f1] bg-white text-[#101e4b] hover:border-[#2f55d4]/40 hover:text-[#2f55d4]"
+                ? "border-[#12225a] bg-[#12225a] text-white"
+                : "border-[#dfe4f1] bg-white text-[#12225a] hover:border-[#2f55d4]/40 hover:text-[#2f55d4]"
             }`}
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -172,7 +173,7 @@ export default function Header() {
                 const classes = `flex items-center gap-4 py-4 text-base transition-colors ${
                   active
                     ? "font-semibold text-[#2f55d4]"
-                    : "font-medium text-[#101e4b] hover:text-[#2f55d4]"
+                    : "font-medium text-[#12225a] hover:text-[#2f55d4]"
                 }`;
                 const content = (
                   <>
@@ -214,7 +215,7 @@ export default function Header() {
             <Link
               to="/start-project"
               onClick={closeMenu}
-              className="mt-5 flex w-full items-center justify-center gap-2 rounded-md bg-[#101e4b] px-4 py-3.5 text-sm font-semibold text-white transition hover:bg-[#2f55d4]"
+              className="mt-5 flex w-full items-center justify-center gap-2 rounded-md bg-[#12225a] px-4 py-3.5 text-sm font-semibold text-white transition hover:bg-[#2f55d4]"
             >
               Start a Project
               <ArrowRight size={16} />
