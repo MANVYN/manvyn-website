@@ -18,14 +18,19 @@ const ProjectDetails = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const gallery = project.gallery || [];
+  // const gallery = project.gallery || [];
+  const gallery = project.gallery?.items || [];
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [project.id]);
 
   useEffect(() => {
     if (gallery.length <= 1) return;
 
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % gallery.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [gallery.length]);
@@ -216,17 +221,17 @@ const ProjectDetails = () => {
             </div>
 
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
-              A complete digital experience built around the product.
+              {/* A complete digital experience built around the product. */}
+              {project.capabilities.title}
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-[#64748b]">
-              From discovering products to managing orders, the platform brings
-              the core e-commerce experience together in one system.
+              {project.capabilities.description}
             </p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {project.capabilities.map((capability, index) => {
+            {project.capabilities.items.map((capability, index) => {
               const Icon = capabilitiesIcons[capability.icon];
 
               return (
@@ -279,12 +284,11 @@ const ProjectDetails = () => {
             </div>
 
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Designed to keep the shopping experience simple.
+              {project.gallery.title}
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-300">
-              Every part of ShopSphere was designed to make browsing, purchasing
-              and managing orders feel clear and effortless.
+              {project.gallery.description}
             </p>
           </div>
 
@@ -367,18 +371,17 @@ const ProjectDetails = () => {
               </div>
 
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0b1220] sm:text-4xl">
-                Built with the features needed to run the platform.
+                {project.features.title}
               </h2>
 
               <p className="mt-5 max-w-[480px] text-lg leading-8 text-[#64748b]">
-                ShopSphere brings together the essential tools required for
-                customers, administrators and day-to-day platform management.
+                {project.features.description}
               </p>
             </div>
 
             {/* RIGHT */}
             <div className="grid sm:grid-cols-2">
-              {project.features.map((feature, index) => (
+              {project.features.items.map((feature, index) => (
                 <div
                   key={feature}
                   className="flex items-start gap-4 border-b border-slate-200 py-5 sm:px-5"
@@ -411,18 +414,17 @@ const ProjectDetails = () => {
         </div>
 
         <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          A modern stack built for flexibility and scale.
+          {project.stack.title}
         </h2>
 
         <p className="mt-5 max-w-[480px] text-lg leading-8 text-slate-300">
-          ShopSphere uses a modern full-stack architecture to keep the
-          application maintainable, responsive and ready to evolve.
+          {project.stack.description}
         </p>
       </div>
 
       {/* RIGHT */}
       <div className="divide-y divide-white/10 border-y border-white/10">
-        {project.stack.map((item) => {
+        {project.stack.items.map((item) => {
           const config = technologyConfig[item.technology];
           const Icon = config?.icon;
 

@@ -1,20 +1,5 @@
 @import "tailwindcss";
 
-/* :root {
-  --color-navy: #0b1220;
-  --color-navy-light: #162033;
-
-  --color-blue: #2563eb;
-  --color-blue-dark: #1d4ed8;
-  --color-cyan: #06b6d4;
-
-  --color-white: #ffffff;
-  --color-surface: #f8fafc;
-  --color-border: #e5e7eb;
-
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
-} */
 
 :root {
   /* Brand */
