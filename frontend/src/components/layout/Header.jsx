@@ -64,7 +64,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="flex h-[68px] items-center justify-between sm:h-20">
+        <div className="flex h-[62px] items-center justify-between sm:h-17">
           {/* Logo */}
           <Link
             to="/"
@@ -77,7 +77,7 @@ export default function Header() {
               alt="MANVYN"
               width={180}
               height={72}
-              className="h-14 w-auto object-contain sm:h-[72px]"
+              className="h-12 w-auto object-contain sm:h-[60px]"
             />
           </Link>
 
@@ -123,12 +123,12 @@ export default function Header() {
           {/* Desktop CTA */}
           <Link
             to="/start-project"
-            className="group hidden items-center gap-2 rounded-md bg-[#12225a] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#12225a]/20 transition-all duration-300 hover:bg-[#1c347f] hover:shadow-md hover:shadow-[#12225a]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
+            className="group hidden items-center gap-2 rounded-md bg-[#12225a] px-4 py-2 text-xs font-semibold text-white shadow-sm shadow-[#12225a]/20 transition-all duration-300 hover:bg-[#1c347f] hover:shadow-md hover:shadow-[#12225a]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
             // className="group hidden items-center gap-2 rounded-md bg-[#12225a] px-5 py-2.5 text-xs font-semibold text-white shadow-sm shadow-[#12225a]/20 transition hover:bg-[#2f55d4] hover:shadow-md hover:shadow-[#2f55d4]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f55d4]/50 focus-visible:ring-offset-2 md:inline-flex"
           >
             Start a Project
             <ArrowRight
-              size={15}
+              size={14}
               className="transition-transform duration-300 group-hover:translate-x-0.5"
             />
           </Link>
@@ -218,7 +218,7 @@ export default function Header() {
               className="mt-5 flex w-full items-center justify-center gap-2 rounded-md bg-[#12225a] px-4 py-3.5 text-sm font-semibold text-white transition hover:bg-[#2f55d4]"
             >
               Start a Project
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </Link>
           </nav>
         </div>
